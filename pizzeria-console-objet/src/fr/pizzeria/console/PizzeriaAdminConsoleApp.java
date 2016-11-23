@@ -50,6 +50,7 @@ public class PizzeriaAdminConsoleApp {
 		newMenu[pizzas.length].prix = newPizza.prix;
 
 		pizzas = newMenu;
+		Pizza.nbPizzas++;
 	}
 
 	/**
@@ -63,17 +64,19 @@ public class PizzeriaAdminConsoleApp {
 
 		Pizza[] newMenu = new Pizza[pizzas.length - 1];
 
-		int index = 0;
 		for (int i = 0; i < pizzas.length; i++) {
 
 			if (!code.equals(pizzas[i].code)) {
-				newMenu[index].id = pizzas[i].id;
-				newMenu[index].code = pizzas[i].code;
-				newMenu[index].nom = pizzas[i].nom;
-				newMenu[index].prix = pizzas[i].prix;
+				newMenu[i] = new Pizza();
+				newMenu[i].id = pizzas[i].id;
+				newMenu[i].code = pizzas[i].code;
+				newMenu[i].nom = pizzas[i].nom;
+				newMenu[i].prix = pizzas[i].prix;
 			}
 		}
 		pizzas = newMenu;
+
+		Pizza.nbPizzas--;
 	}
 
 	/**
@@ -88,7 +91,8 @@ public class PizzeriaAdminConsoleApp {
 			for (Pizza p: pizzas)
 			{
 				System.out.println(p.code + " -> " + p.nom + " (" + p.prix + " €)");
-			}	
+			}
+			System.out.println("------- " + Pizza.nbPizzas + " pizzas créées depuis l’initialisation du programme");
 		}
 		else {
 			for (Pizza p: pizzas)
@@ -240,7 +244,7 @@ public class PizzeriaAdminConsoleApp {
 	}
 
 	public static void initPizzas() {
-		
+
 		String[][] pizzas = {
 				{"0", "PEP", "Pépéroni", "12.50"},
 				{"1", "MAR", "Margherita", "14.00"},
@@ -251,7 +255,7 @@ public class PizzeriaAdminConsoleApp {
 				{"6", "ORI", "L’orientale", "13.50"},
 				{"7", "IND", "L’indienne", "14.00"},
 		};
-		
+
 		int i = 0;
 		for (String[] p: pizzas)
 		{

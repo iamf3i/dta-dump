@@ -121,7 +121,11 @@ public class PizzeriaAdminConsoleApp {
 		Pizza newPizza = new Pizza();
 		newPizza.code = code;
 		newPizza.nom = name;
-		newPizza.prix = Double.parseDouble(price);
+		try {
+			newPizza.prix = Double.parseDouble(price);
+		} catch (Exception e) {
+			System.out.println("Invalid price");
+		}
 		pushPizzaToArray(newPizza);
 	}
 
@@ -164,8 +168,11 @@ public class PizzeriaAdminConsoleApp {
 
 				System.out.println("Veuillez saisir le prix");
 				String price = reader.next();
-				pizzas[pizzaId].prix = Double.parseDouble(price);
-
+				try {
+					pizzas[pizzaId].prix = Double.parseDouble(price);
+				} catch (Exception e) {
+					System.out.println("Invalid price");
+				}
 				break;
 			}
 			else if (code.equals("99")) {
@@ -263,7 +270,11 @@ public class PizzeriaAdminConsoleApp {
 			newPizza.id = Integer.parseInt(p[0]);
 			newPizza.code = p[1];
 			newPizza.nom = p[2];
-			newPizza.prix = Double.parseDouble(p[3]);
+			try {
+				newPizza.prix = Double.parseDouble(p[3]);
+			} catch (Exception e) {
+				System.out.println("Invalid price");
+			}
 			PizzeriaAdminConsoleApp.pizzas[i] = newPizza;
 			i++;
 		}

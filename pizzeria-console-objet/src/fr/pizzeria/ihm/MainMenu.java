@@ -1,7 +1,12 @@
-package fr.pizzeria.model;
+package fr.pizzeria.ihm;
 import java.util.Scanner;
 
-import fr.pizzeria.model.Action;
+import fr.pizzeria.action.Action;
+import fr.pizzeria.action.AddPizza;
+import fr.pizzeria.action.DeletePizza;
+import fr.pizzeria.action.ExitMenu;
+import fr.pizzeria.action.ListPizza;
+import fr.pizzeria.action.UpdatePizza;
 
 public class MainMenu {
 
@@ -17,19 +22,30 @@ public class MainMenu {
 		this.menu[4] = new ExitMenu();
 	}
 
-	public void displayMenu() {
+	private void displayMenu() {
+
+		System.out.println("***** Pizzeria Administration *****");
 		for (int i = 0; i < this.menu.length; ++i) {
 			this.menu[i].describe_action();
 		}
 	}
 	
-	public void parseAndExec() {
+	private void parseAndExec() {
+
 		String input = reader.next();
 
-		if (Integer.parseInt(input) < 4)
+		if (Integer.parseInt(input) < menu.length)
 			this.menu[Integer.parseInt(input) - 1].do_action();
 		else if (Integer.parseInt(input) == 99) {
 			this.menu[4].do_action();
+		}
+	}
+
+	public void start(){
+
+		while (true) {
+			this.displayMenu();
+			this.parseAndExec();
 		}
 	}
 }

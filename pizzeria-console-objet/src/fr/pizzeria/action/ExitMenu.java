@@ -1,4 +1,4 @@
-package fr.pizzeria.model;
+package fr.pizzeria.action;
 
 public class ExitMenu extends Action {
 

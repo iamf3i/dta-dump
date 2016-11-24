@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import javax.print.attribute.standard.PrinterLocation;
 
-import fr.pizzeria.model.MainMenu;
+import fr.pizzeria.ihm.MainMenu;
 import fr.pizzeria.model.Pizza;
 
 public class PizzeriaAdminConsoleApp {
@@ -24,35 +24,6 @@ public class PizzeriaAdminConsoleApp {
 	public static Scanner reader = new Scanner(System.in);  // Déclaration du "Reader" pour les saisies utilisateur
 	public static Pizza[] pizzas = new Pizza[8];			// Tableau répertoriant les pizzas
 
-
-	/**
-	 * Recopie intégralement le tableau de pizzas
-	 * En y ajoutant la pizza passée en paramètre
-	 * La copie du tableau est alors affectée au tableau initial
-	 * Cela permet la création
-	 * @param newPizza
-	 */
-	public static void pushPizzaToArray(Pizza newPizza) {
-
-		Pizza[] newMenu = new Pizza[pizzas.length + 1];
-
-		for (int i = 0; i < pizzas.length; ++i) {
-			newMenu[i] = new Pizza();
-			newMenu[i].id = pizzas[i].id;
-			newMenu[i].code = pizzas[i].code;
-			newMenu[i].nom = pizzas[i].nom;
-			newMenu[i].prix = pizzas[i].prix;
-		}
-
-		newMenu[pizzas.length] = new Pizza();
-		newMenu[pizzas.length].id = pizzas.length;
-		newMenu[pizzas.length].code = newPizza.code;
-		newMenu[pizzas.length].nom = newPizza.nom;
-		newMenu[pizzas.length].prix = newPizza.prix;
-
-		pizzas = newMenu;
-		Pizza.nbPizzas++;
-	}
 
 	/**
 	 * Recopie intégralement le tableau de pizzas
@@ -288,14 +259,9 @@ public class PizzeriaAdminConsoleApp {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		//	initPizzas();
-		//	printMenu();
 
 		MainMenu Core = new MainMenu();
 
-		while (true) {
-			Core.displayMenu();
-			Core.parseAndExec();
-		}
+		Core.start();
 	}
 }

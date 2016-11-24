@@ -1,4 +1,4 @@
-package fr.pizzeria.action;
+package fr.pizzeria.ihm.action;
 
 import fr.pizzeria.ihm.IhmUtil;
 

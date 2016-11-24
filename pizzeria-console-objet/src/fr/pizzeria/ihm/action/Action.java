@@ -1,4 +1,4 @@
-package fr.pizzeria.action;
+package fr.pizzeria.ihm.action;
 
 public abstract class Action {
 

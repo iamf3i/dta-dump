@@ -1,12 +1,12 @@
 package fr.pizzeria.ihm;
 import java.util.Scanner;
 
-import fr.pizzeria.action.Action;
-import fr.pizzeria.action.AddPizza;
-import fr.pizzeria.action.DeletePizza;
-import fr.pizzeria.action.ExitMenu;
-import fr.pizzeria.action.ListPizza;
-import fr.pizzeria.action.UpdatePizza;
+import fr.pizzeria.ihm.action.Action;
+import fr.pizzeria.ihm.action.AddPizza;
+import fr.pizzeria.ihm.action.DeletePizza;
+import fr.pizzeria.ihm.action.ExitMenu;
+import fr.pizzeria.ihm.action.ListPizza;
+import fr.pizzeria.ihm.action.UpdatePizza;
 
 public class MainMenu {
 

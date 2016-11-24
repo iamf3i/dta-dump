@@ -10,7 +10,7 @@ public class DeletePizza extends Action {
 
 	@Override
 	public void do_action() {
-
+		System.out.println("JE SUPPRIME UNE PIZZA :D");
 	}
 
 	@Override

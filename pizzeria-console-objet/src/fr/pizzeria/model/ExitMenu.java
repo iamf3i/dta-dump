@@ -10,7 +10,7 @@ public class ExitMenu extends Action {
 
 	@Override
 	public void do_action() {
-
+		System.out.println("AU REVOIR :'(");
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import javax.print.attribute.standard.PrinterLocation;
 
+import fr.pizzeria.model.MainMenu;
 import fr.pizzeria.model.Pizza;
 
 public class PizzeriaAdminConsoleApp {
@@ -287,7 +288,14 @@ public class PizzeriaAdminConsoleApp {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		initPizzas();
-		printMenu();
+		//	initPizzas();
+		//	printMenu();
+
+		MainMenu Core = new MainMenu();
+
+		while (true) {
+			Core.displayMenu();
+			Core.parseAndExec();
+		}
 	}
 }

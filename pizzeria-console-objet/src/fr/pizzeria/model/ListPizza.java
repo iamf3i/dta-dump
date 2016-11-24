@@ -10,7 +10,7 @@ public class ListPizza extends Action {
 
 	@Override
 	public void do_action() {
-
+		System.out.println("JE LISTE LES PIZZAS :D");
 	}
 
 	@Override

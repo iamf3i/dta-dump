@@ -9,7 +9,7 @@ public class UpdatePizza extends Action {
 
 	@Override
 	public void do_action() {
-
+		System.out.println("JE MODIFIE UNE PIZZA :D YOLOOOOO :O");
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package fr.pizzeria.action;
 
+import fr.pizzeria.ihm.IhmUtil;
+
 public class ExitMenu extends Action {
 
 	

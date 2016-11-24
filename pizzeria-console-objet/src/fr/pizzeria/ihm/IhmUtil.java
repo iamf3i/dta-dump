@@ -15,4 +15,19 @@ public class IhmUtil {
 		this.pizzaDao = pizzaDao;
 	}
 
+	public Scanner getScanner() {
+		return scanner;
+	}
+
+	public void setScanner(Scanner scanner) {
+		this.scanner = scanner;
+	}
+
+	public PizzaDao getPizzaDao() {
+		return pizzaDao;
+	}
+
+	public void setPizzaDao(PizzaDao pizzaDao) {
+		this.pizzaDao = pizzaDao;
+	}
 }

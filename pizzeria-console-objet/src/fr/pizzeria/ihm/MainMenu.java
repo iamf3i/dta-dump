@@ -11,15 +11,18 @@ import fr.pizzeria.action.UpdatePizza;
 public class MainMenu {
 
 	Action[] menu = new Action[5];
-	Scanner reader = new Scanner(System.in);
 
-	public MainMenu() {
+	IhmUtil utils;
 
-		this.menu[0] = new ListPizza();
-		this.menu[1] = new AddPizza();
-		this.menu[2] = new UpdatePizza();
-		this.menu[3] = new DeletePizza();
+	public MainMenu(IhmUtil utils) {
+
+		this.menu[0] = new ListPizza(utils);
+		this.menu[1] = new AddPizza(utils);
+		this.menu[2] = new UpdatePizza(utils);
+		this.menu[3] = new DeletePizza(utils);
 		this.menu[4] = new ExitMenu();
+
+		this.utils = utils;
 	}
 
 	private void displayMenu() {
@@ -29,23 +32,24 @@ public class MainMenu {
 			this.menu[i].describe_action();
 		}
 	}
-	
-	private void parseAndExec() {
 
-		String input = reader.next();
+	private boolean parseAndExec() {
 
-		if (Integer.parseInt(input) < menu.length)
+		String input = utils.getScanner().next();
+
+		if (Integer.parseInt(input) < menu.length) {
 			this.menu[Integer.parseInt(input) - 1].do_action();
-		else if (Integer.parseInt(input) == 99) {
-			this.menu[4].do_action();
+			return true;
 		}
+		else if (Integer.parseInt(input) == 99)
+			this.menu[4].do_action();
+		return false;
 	}
 
 	public void start(){
 
-		while (true) {
+		do {
 			this.displayMenu();
-			this.parseAndExec();
-		}
+		} while (this.parseAndExec());
 	}
 }

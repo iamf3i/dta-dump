@@ -46,7 +46,6 @@ public class PizzaDaoArray implements PizzaDao {
 
 	@Override
 	public boolean updatePizza(String codePizza, Pizza pizza) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -55,20 +54,31 @@ public class PizzaDaoArray implements PizzaDao {
 
 		Pizza[] newMenu = new Pizza[pizzas.length - 1];
 
-		for (int i = 0; i < pizzas.length; i++) {
+		for (int i = 0; i < pizzas.length - 1; i++) {
 
-			if (!code.equals(pizzas[i].code)) {
+			if (!codePizza.equals(pizzas[i].getCode())) {
 				newMenu[i] = new Pizza();
-				newMenu[i].id = pizzas[i].id;
-				newMenu[i].code = pizzas[i].code;
-				newMenu[i].nom = pizzas[i].nom;
-				newMenu[i].prix = pizzas[i].prix;
+				newMenu[i].setId(pizzas[i].getId());
+				newMenu[i].setCode(pizzas[i].getCode());
+				newMenu[i].setNom(pizzas[i].getNom());
+				newMenu[i].setPrix(pizzas[i].getPrix());
 			}
 		}
+
 		pizzas = newMenu;
 
 		Pizza.nbPizzas--;
 		return true;
 	}
 
+	@Override
+	public int getPizzaIdFromCode(String codePizza) {
+
+		for (int i = 0; i < this.pizzas.length; ++i) {
+			if (this.pizzas[i].getCode().equals(codePizza)) {
+				return this.pizzas[i].getId();
+			}
+		}
+		return -1;
+	}
 }

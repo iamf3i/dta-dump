@@ -40,16 +40,16 @@ public class UpdatePizza extends Action {
 			if (pizzaId != -1) {
 				System.out.println("Veuillez saisir le code");
 				String newCode = reader.next();
-				pizzaDao.findAllPizzas()[pizzaId].setCode(newCode);
+				pizzaDao.findAllPizzas().get(pizzaId).setCode(newCode);
 
 				System.out.println("Veuillez saisir le nom (sans espace)");
 				String name = reader.next();
-				pizzaDao.findAllPizzas()[pizzaId].setNom(name);
+				pizzaDao.findAllPizzas().get(pizzaId).setNom(name);
 
 				System.out.println("Veuillez saisir le prix");
 				String price = reader.next();
 				try {
-					pizzaDao.findAllPizzas()[pizzaId].setPrix(Double.parseDouble(price));
+					pizzaDao.findAllPizzas().get(pizzaId).setPrix(Double.parseDouble(price));
 				} catch (Exception e) {
 					System.out.println("Invalid price");
 				}

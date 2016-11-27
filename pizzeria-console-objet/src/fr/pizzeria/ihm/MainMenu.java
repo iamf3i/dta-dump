@@ -1,4 +1,7 @@
 package fr.pizzeria.ihm;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 import fr.pizzeria.ihm.action.Action;
@@ -7,20 +10,21 @@ import fr.pizzeria.ihm.action.DeletePizza;
 import fr.pizzeria.ihm.action.ExitMenu;
 import fr.pizzeria.ihm.action.ListPizza;
 import fr.pizzeria.ihm.action.UpdatePizza;
+import fr.pizzeria.model.Pizza;
 
 public class MainMenu {
 
-	Action[] menu = new Action[5];
+	Map<Integer, Action> menu = new HashMap<Integer, Action>();
 
 	IhmUtil utils;
 
 	public MainMenu(IhmUtil utils) {
 
-		this.menu[0] = new ListPizza(utils);
-		this.menu[1] = new AddPizza(utils);
-		this.menu[2] = new UpdatePizza(utils);
-		this.menu[3] = new DeletePizza(utils);
-		this.menu[4] = new ExitMenu();
+		this.menu.put(1, new ListPizza(utils));
+		this.menu.put(2, new AddPizza(utils));
+		this.menu.put(3, new UpdatePizza(utils));
+		this.menu.put(4, new DeletePizza(utils));
+		this.menu.put(5, new ExitMenu());
 
 		this.utils = utils;
 	}
@@ -28,8 +32,8 @@ public class MainMenu {
 	private void displayMenu() {
 
 		System.out.println("***** Pizzeria Administration *****");
-		for (int i = 0; i < this.menu.length; ++i) {
-			this.menu[i].describe_action();
+		for (Entry<Integer, Action> entry : menu.entrySet()) {
+			entry.getValue().describe_action();
 		}
 	}
 
@@ -37,13 +41,11 @@ public class MainMenu {
 
 		try {
 			String input = utils.getScanner().next();
-
-			if (Integer.parseInt(input) < menu.length) {
-				this.menu[Integer.parseInt(input) - 1].do_action();
-				return true;
-			}
-			else if (Integer.parseInt(input) == 99)
-				this.menu[4].do_action();
+			if (Integer.parseInt(input) == 99)
+				this.menu.get(4).do_action();
+			else
+				this.menu.get(Integer.parseInt(input)).do_action();
+			return true;
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());

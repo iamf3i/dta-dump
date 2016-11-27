@@ -28,7 +28,7 @@ public class AddPizza extends Action {
 		String price = this.utils.getScanner().next();
 
 		Pizza newPizza = new Pizza();
-		newPizza.setId(this.utils.getPizzaDao().findAllPizzas().length);
+		newPizza.setId(this.utils.getPizzaDao().findAllPizzas().size());
 		newPizza.setCode(code);
 		newPizza.setNom(name);
 

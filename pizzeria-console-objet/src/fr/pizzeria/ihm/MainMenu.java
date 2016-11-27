@@ -35,14 +35,19 @@ public class MainMenu {
 
 	private boolean parseAndExec() {
 
-		String input = utils.getScanner().next();
+		try {
+			String input = utils.getScanner().next();
 
-		if (Integer.parseInt(input) < menu.length) {
-			this.menu[Integer.parseInt(input) - 1].do_action();
-			return true;
+			if (Integer.parseInt(input) < menu.length) {
+				this.menu[Integer.parseInt(input) - 1].do_action();
+				return true;
+			}
+			else if (Integer.parseInt(input) == 99)
+				this.menu[4].do_action();
 		}
-		else if (Integer.parseInt(input) == 99)
-			this.menu[4].do_action();
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		return false;
 	}
 

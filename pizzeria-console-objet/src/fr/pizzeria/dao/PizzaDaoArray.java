@@ -1,5 +1,7 @@
 package fr.pizzeria.dao;
 
+import fr.pizzeria.exception.DeletePizzaException;
+import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoArray implements PizzaDao {
@@ -21,7 +23,11 @@ public class PizzaDaoArray implements PizzaDao {
 	}
 
 	@Override
-	public boolean saveNewPizza(Pizza pizza) {
+	public boolean saveNewPizza(Pizza pizza) throws SavePizzaException {
+
+		if (pizza == null) {
+			throw new SavePizzaException("Error: ");
+		}
 
 		Pizza[] newMenu = new Pizza[pizzas.length + 1];
 
@@ -50,7 +56,11 @@ public class PizzaDaoArray implements PizzaDao {
 	}
 
 	@Override
-	public boolean deletePizza(String codePizza) {
+	public boolean deletePizza(String codePizza) throws DeletePizzaException {
+
+		if (codePizza == null) {
+			throw new DeletePizzaException("Error: ");
+		}
 
 		Pizza[] newMenu = new Pizza[pizzas.length - 1];
 

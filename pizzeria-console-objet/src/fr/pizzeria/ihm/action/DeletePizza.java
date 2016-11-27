@@ -3,6 +3,8 @@ package fr.pizzeria.ihm.action;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.exception.DeletePizzaException;
+import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.Pizza;
 
@@ -28,7 +30,7 @@ public class DeletePizza extends Action {
 	}
 
 	@Override
-	public void do_action() {
+	public void do_action() throws PizzaException {
 		System.out.println("JE SUPPRIME UNE PIZZA :D");
 		
 		while (true) {

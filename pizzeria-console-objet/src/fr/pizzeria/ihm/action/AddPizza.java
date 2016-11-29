@@ -16,7 +16,7 @@ public class AddPizza extends Action {
 	}
 
 	@Override
-	public void do_action() throws PizzaException {
+	public void doAction() throws PizzaException {
 
 		System.out.println("Veuillez saisir le code");
 		String code = this.utils.getScanner().next();
@@ -37,7 +37,7 @@ public class AddPizza extends Action {
 	}
 
 	@Override
-	public void describe_action() {
+	public void describeAction() {
 		System.out.println(this.getDescription());
 	}
 

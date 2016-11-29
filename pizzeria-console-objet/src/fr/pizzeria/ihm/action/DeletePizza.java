@@ -3,7 +3,6 @@ package fr.pizzeria.ihm.action;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDao;
-import fr.pizzeria.exception.DeletePizzaException;
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.Pizza;
@@ -22,7 +21,7 @@ public class DeletePizza extends Action {
 
 	private void printPizzaList() {
 
-		for (Pizza p: pizzaDao.findAllPizzas()) {
+		for (Pizza p : pizzaDao.findAllPizzas()) {
 			System.out.println(p.getCode() + " - " + p.getNom() + " (" + p.getPrix() + " €)");
 		}
 		System.out.println("Veuillez choisir la pizza à supprimer.");
@@ -30,9 +29,9 @@ public class DeletePizza extends Action {
 	}
 
 	@Override
-	public void do_action() throws PizzaException {
+	public void doAction() throws PizzaException {
 		System.out.println("JE SUPPRIME UNE PIZZA :D");
-		
+
 		while (true) {
 			printPizzaList();
 
@@ -40,8 +39,7 @@ public class DeletePizza extends Action {
 
 			if (code.equals("99")) {
 				break;
-			}
-			else if (pizzaDao.getPizzaIdFromCode(code) != -1) {
+			} else if (pizzaDao.getPizzaIdFromCode(code).get().getId() != -1) {
 				pizzaDao.deletePizza(code);
 				break;
 			}
@@ -49,7 +47,7 @@ public class DeletePizza extends Action {
 	}
 
 	@Override
-	public void describe_action() {
+	public void describeAction() {
 		System.out.println(this.getDescription());
 	}
 

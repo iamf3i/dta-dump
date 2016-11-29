@@ -5,19 +5,21 @@ public class Pizza {
 	private int id;
 	private String code;
 	private String nom;
-	private double prix;
+	private Double prix;
+	private CategoriePizza cat;
 	public static int nbPizzas;
 
 	public Pizza() {
 		super();
 	}
 
-	public Pizza(int id, String code, String nom, double prix) {
+	public Pizza(int id, String code, String nom, double prix, CategoriePizza cat) {
 		super();
 		this.id = id;
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
+		this.cat = cat;
 	}
 
 	public int getId() {
@@ -60,5 +62,17 @@ public class Pizza {
 		Pizza.nbPizzas = nbPizzas;
 	}
 
-	
+	public CategoriePizza getCat() {
+		return cat;
+	}
+
+	public void setCat(CategoriePizza cat) {
+		this.cat = cat;
+	}
+
+	@Override
+	public String toString() {
+		return "Pizza [code=" + code + ", nom=" + nom + ", prix=" + prix + "]";
+	}
+
 }

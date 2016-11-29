@@ -21,7 +21,7 @@ public class UpdatePizza extends Action {
 
 	private void printPizzaList() {
 
-		for (Pizza p: pizzaDao.findAllPizzas()) {
+		for (Pizza p : pizzaDao.findAllPizzas()) {
 			System.out.println(p.getCode() + " - " + p.getNom() + " (" + p.getPrix() + " €)");
 		}
 		System.out.println("Veuillez choisir la pizza à modifier.");
@@ -29,13 +29,13 @@ public class UpdatePizza extends Action {
 	}
 
 	@Override
-	public void do_action() {
+	public void doAction() {
 
 		while (true) {
 			printPizzaList();
 
 			String code = reader.next();
-			int pizzaId = pizzaDao.getPizzaIdFromCode(code);
+			int pizzaId = pizzaDao.getPizzaIdFromCode(code).get().getId();
 
 			if (pizzaId != -1) {
 				System.out.println("Veuillez saisir le code");
@@ -54,15 +54,14 @@ public class UpdatePizza extends Action {
 					System.out.println("Invalid price");
 				}
 				break;
-			}
-			else if (code.equals("99")) {
+			} else if (code.equals("99")) {
 				break;
 			}
 		}
 	}
 
 	@Override
-	public void describe_action() {
+	public void describeAction() {
 		System.out.println(this.getDescription());
 	}
 

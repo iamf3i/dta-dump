@@ -14,17 +14,15 @@ public class ListPizza extends Action {
 	}
 
 	@Override
-	public void do_action() {
+	public void doAction() {
 
-		System.out.println("The test");
-
-		for (Pizza p: utils.getPizzaDao().findAllPizzas()) {
+		for (Pizza p : utils.getPizzaDao().findAllPizzas()) {
 			System.out.println(p.getCode() + " -> " + p.getNom() + " (" + p.getPrix() + " €)");
 		}
 	}
 
 	@Override
-	public void describe_action() {
+	public void describeAction() {
 		System.out.println(this.getDescription());
 	}
 

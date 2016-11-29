@@ -1,8 +1,6 @@
 package fr.pizzeria.ihm.action;
 
-import fr.pizzeria.exception.DeletePizzaException;
 import fr.pizzeria.exception.PizzaException;
-import fr.pizzeria.exception.SavePizzaException;
 
 public abstract class Action {
 
@@ -16,6 +14,7 @@ public abstract class Action {
 		this.description = description;
 	}
 
-	public abstract void do_action() throws PizzaException;
-	public abstract void describe_action();
+	public abstract void doAction() throws PizzaException;
+
+	public abstract void describeAction();
 }

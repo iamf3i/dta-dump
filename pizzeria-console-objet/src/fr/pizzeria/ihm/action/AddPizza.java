@@ -1,7 +1,6 @@
 package fr.pizzeria.ihm.action;
 
 import fr.pizzeria.exception.PizzaException;
-import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.Pizza;
 

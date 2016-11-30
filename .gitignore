@@ -36,3 +36,4 @@ Servers/
 *.class
 *.jar
 .recommenders/
+pizzeria-console-objet/data/

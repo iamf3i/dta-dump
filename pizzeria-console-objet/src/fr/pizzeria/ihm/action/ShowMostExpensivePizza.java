@@ -3,14 +3,13 @@ package fr.pizzeria.ihm.action;
 import java.util.Comparator;
 import java.util.List;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.pizza.PizzaDao;
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.Pizza;
 
 public class ShowMostExpensivePizza extends Action {
 
-	private IhmUtil utils;
 	private PizzaDao pizzaDao;
 
 	@Override
@@ -31,7 +30,6 @@ public class ShowMostExpensivePizza extends Action {
 	public ShowMostExpensivePizza(IhmUtil utils) {
 		super();
 		this.setDescription("6. Afficher la pizza au tarif le plus élevé");
-		this.utils = utils;
 		this.pizzaDao = utils.getPizzaDao();
 	}
 

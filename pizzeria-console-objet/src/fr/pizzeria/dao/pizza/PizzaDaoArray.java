@@ -1,4 +1,4 @@
-package fr.pizzeria.dao;
+package fr.pizzeria.dao.pizza;
 
 import java.util.ArrayList;
 import java.util.List;

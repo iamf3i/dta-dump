@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.pizza.PizzaDao;
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.CategoriePizza;

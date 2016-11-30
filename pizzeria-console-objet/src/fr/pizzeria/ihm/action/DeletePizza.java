@@ -19,7 +19,7 @@ public class DeletePizza extends Action {
 		this.pizzaDao = utils.getPizzaDao();
 	}
 
-	private void printPizzaList() {
+	private void printPizzaList() throws PizzaException {
 
 		for (Pizza p : pizzaDao.findAllPizzas()) {
 			System.out.println(p.getCode() + " - " + p.getNom() + " (" + p.getPrix() + " €)");

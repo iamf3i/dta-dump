@@ -2,7 +2,6 @@ package fr.pizzeria.dao.pizza;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ import fr.pizzeria.model.Pizza;
 public class PizzaDaoFichier implements PizzaDao {
 
 	@Override
-	public List<Pizza> findAllPizzas() {
+	public List<Pizza> findAllPizzas() throws PizzaException {
 
 		List<Pizza> ret = new ArrayList<Pizza>();
 		File dir = new File("C:\\Users\\ETY5\\Documents\\WORKSPACE\\src\\pizzeria-console-objet\\data");
@@ -34,12 +33,8 @@ public class PizzaDaoFichier implements PizzaDao {
 					Properties props = new Properties();
 					try {
 						props.load(new FileInputStream(child));
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						throw new PizzaException("InputStream: Fail");
 					}
 					p.setCode(props.getProperty("code"));
 					p.setNom(props.getProperty("nom"));

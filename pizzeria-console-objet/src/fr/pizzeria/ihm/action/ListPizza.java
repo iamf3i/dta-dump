@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm.action;
 
+import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.Pizza;
 
@@ -14,7 +15,7 @@ public class ListPizza extends Action {
 	}
 
 	@Override
-	public void doAction() {
+	public void doAction() throws PizzaException {
 
 		for (Pizza p : utils.getPizzaDao().findAllPizzas()) {
 			System.out.println(p.getCode() + " -> " + p.getNom() + " (" + p.getPrix() + " €)");

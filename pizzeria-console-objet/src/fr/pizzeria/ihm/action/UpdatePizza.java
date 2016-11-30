@@ -3,6 +3,7 @@ package fr.pizzeria.ihm.action;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.pizza.PizzaDao;
+import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.Pizza;
 
@@ -19,7 +20,7 @@ public class UpdatePizza extends Action {
 		this.pizzaDao = utils.getPizzaDao();
 	}
 
-	private void printPizzaList() {
+	private void printPizzaList() throws PizzaException {
 
 		for (Pizza p : pizzaDao.findAllPizzas()) {
 			System.out.println(p.getCode() + " - " + p.getNom() + " (" + p.getPrix() + " €)");
@@ -29,7 +30,7 @@ public class UpdatePizza extends Action {
 	}
 
 	@Override
-	public void doAction() {
+	public void doAction() throws PizzaException {
 
 		while (true) {
 			printPizzaList();

@@ -8,7 +8,7 @@ import fr.pizzeria.model.Pizza;
 
 public interface PizzaDao {
 
-	List<Pizza> findAllPizzas();
+	List<Pizza> findAllPizzas() throws PizzaException;
 
 	boolean saveNewPizza(Pizza pizza) throws PizzaException;
 

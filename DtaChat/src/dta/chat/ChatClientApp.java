@@ -9,7 +9,7 @@ public class ChatClientApp {
 
 		ViewComposite core = new ChatConsoleView();
 
-		core.print();
+		((ChatConsoleView) core).run();
 	}
 
 }

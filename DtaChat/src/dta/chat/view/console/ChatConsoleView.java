@@ -3,7 +3,7 @@ package dta.chat.view.console;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChatConsoleView extends ViewComposite {
+public class ChatConsoleView extends ViewComposite implements Runnable {
 
 	List<ViewComposite> children = new ArrayList<ViewComposite>();
 
@@ -20,6 +20,12 @@ public class ChatConsoleView extends ViewComposite {
 		for (ViewComposite child : children) {
 			child.print();
 		}
+	}
+
+	@Override
+	public void run() {
+
+		this.print();
 	}
 
 }

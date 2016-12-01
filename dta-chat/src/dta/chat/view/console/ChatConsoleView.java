@@ -1,9 +1,11 @@
 package dta.chat.view.console;
 
 import dta.chat.controller.ChatAuthController;
+import dta.chat.model.ChatMessage;
+import dta.chat.model.observer.ChatObserver;
 import dta.chat.view.ViewUtils;
 
-public class ChatConsoleView extends ViewComposite implements Runnable {
+public class ChatConsoleView extends ViewComposite implements Runnable, ChatObserver<ChatMessage> {
 
 	private ViewUtils vu;
 	private ChatAuthController authCtl;
@@ -43,8 +45,8 @@ public class ChatConsoleView extends ViewComposite implements Runnable {
 		this.chatConsoleLoginView.setAuthCtl(this.authCtl);
 	}
 
-	public void setLogin(String login) {
-
-		chatConsoleConversationView.setLogin(login);
+	@Override
+	public void update(ChatMessage msg) {
+		chatConsoleConversationView.update(msg);
 	}
 }

@@ -1,5 +1,7 @@
 package dta.chat.view.console;
 
+import dta.chat.model.ChatMessage;
+
 public class ChatConsoleConversationView extends ViewComposite {
 
 	private String username;
@@ -13,5 +15,9 @@ public class ChatConsoleConversationView extends ViewComposite {
 
 	public void setLogin(String login) {
 		this.username = login;
+	}
+
+	public void update(ChatMessage msg) {
+		System.out.println(msg.getLogin() + ": " + msg.getText());
 	}
 }

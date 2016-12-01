@@ -6,12 +6,22 @@ import dta.chat.view.ViewUtils;
 public class ChatConsoleView extends ViewComposite implements Runnable {
 
 	private ViewUtils vu;
+	private ChatAuthController authCtl;
+
+	private ChatConsoleTitleView chatConsoleTitleView;
+	private ChatConsoleLoginView chatConsoleLoginView;
+	private ChatConsoleConversationView chatConsoleConversationView;;
 
 	public ChatConsoleView(ViewUtils vu) {
 		this.vu = vu;
-		children.add(new ChatConsoleTitleView(vu));
-		children.add(new ChatConsoleLoginView(vu));
-		children.add(new ChatConsoleConversationView(vu));
+
+		chatConsoleTitleView = new ChatConsoleTitleView();
+		chatConsoleLoginView = new ChatConsoleLoginView(this.vu);
+		chatConsoleConversationView = new ChatConsoleConversationView();
+
+		children.add(chatConsoleTitleView);
+		children.add(chatConsoleLoginView);
+		children.add(chatConsoleConversationView);
 	}
 
 	@Override
@@ -29,14 +39,12 @@ public class ChatConsoleView extends ViewComposite implements Runnable {
 	}
 
 	public void setAuthController(ChatAuthController c) {
-		this.vu.setAuthCtl(c);
+		this.authCtl = c;
+		this.chatConsoleLoginView.setAuthCtl(this.authCtl);
 	}
 
-	@Override
 	public void setLogin(String login) {
 
-		for (ViewComposite child : children) {
-			child.setLogin(login);
-		}
+		chatConsoleConversationView.setLogin(login);
 	}
 }

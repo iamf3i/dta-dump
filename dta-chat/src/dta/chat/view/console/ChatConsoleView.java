@@ -3,7 +3,6 @@ package dta.chat.view.console;
 public class ChatConsoleView extends ViewComposite implements Runnable {
 
 	public ChatConsoleView() {
-		super();
 		children.add(new ChatConsoleTitleView());
 		children.add(new ChatConsoleLoginView());
 		children.add(new ChatConsoleConversationView());
@@ -22,5 +21,4 @@ public class ChatConsoleView extends ViewComposite implements Runnable {
 
 		this.print();
 	}
-
 }

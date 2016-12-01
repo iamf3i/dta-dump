@@ -1,11 +1,6 @@
 package dta.chat.view.console;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ChatConsoleView extends ViewComposite implements Runnable {
-
-	List<ViewComposite> children = new ArrayList<ViewComposite>();
 
 	public ChatConsoleView() {
 		super();

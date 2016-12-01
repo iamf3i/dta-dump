@@ -17,7 +17,7 @@ public class ChatClientApp {
 			});
 
 			core.run();
-
+			vu.getSc().close();
 		} catch (ChatException e) {
 			System.out.println("Oops! Something went wrong: " + e.getMessage());
 			e.printStackTrace();

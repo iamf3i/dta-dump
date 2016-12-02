@@ -1,5 +1,7 @@
 package fr.pizzeria.model;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+
 public class Pizza {
 
 	private int id;
@@ -73,6 +75,22 @@ public class Pizza {
 	@Override
 	public String toString() {
 		return "Pizza [code=" + code + ", nom=" + nom + ", prix=" + prix + "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (obj == this) {
+			return true;
+		}
+		if (obj.getClass() != getClass()) {
+			return false;
+		}
+
+		Pizza rhs = (Pizza) obj;
+		return new EqualsBuilder().appendSuper(super.equals(obj)).append(code, rhs.code).isEquals();
 	}
 
 }

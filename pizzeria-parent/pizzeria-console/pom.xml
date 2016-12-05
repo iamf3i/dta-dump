@@ -16,6 +16,12 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -44,4 +50,18 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>dao-array</id>
+			<properties>
+				<dao.impl>fr.dta.pizzeria.dao.ArrayDaoFactory</dao.impl>
+			</properties>
+		</profile>
+		<profile>
+			<id>dao-files</id>
+			<properties>
+				<dao.impl>fr.dta.pizzeria.dao.FichierDaoFactory</dao.impl>
+			</properties>
+		</profile>
+	</profiles>
 </project>

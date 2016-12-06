@@ -37,3 +37,4 @@ Servers/
 *.jar
 .recommenders/
 pizzeria-console-objet/data/
+.sonarlint/

@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>fr.dta</groupId>
-		<artifactId>pizzeria-parent</artifactId>
+		<artifactId>fawzi-pizzeria-app</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
-	<artifactId>pizzeria-model</artifactId>
+	<artifactId>fawzi-pizzeria-model</artifactId>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>

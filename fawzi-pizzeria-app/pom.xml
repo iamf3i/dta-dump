@@ -2,16 +2,16 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fr.dta</groupId>
-	<artifactId>pizzeria-parent</artifactId>
+	<artifactId>fawzi-pizzeria-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<modules>
-		<module>pizzeria-console</module>
-		<module>pizzeria-dao</module>
-		<module>pizzeria-model</module>
+		<module>fawzi-pizzeria-console</module>
+		<module>fawzi-pizzeria-dao</module>
+		<module>fawzi-pizzeria-model</module>
 	</modules>
 	<build>
 		<plugins>

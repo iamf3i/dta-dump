@@ -2,15 +2,15 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>fr.dta</groupId>
-    <artifactId>pizzeria-parent</artifactId>
+    <artifactId>fawzi-pizzeria-app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>..</relativePath>
   </parent>
-  <artifactId>pizzeria-dao</artifactId>
+  <artifactId>fawzi-pizzeria-dao</artifactId>
   <dependencies>
   	<dependency>
   		<groupId>fr.dta</groupId>
-  		<artifactId>pizzeria-model</artifactId>
+  		<artifactId>fawzi-pizzeria-model</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   </dependencies>

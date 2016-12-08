@@ -91,4 +91,9 @@ public class PizzaDaoJDBC implements PizzaDao {
 		return null;
 	}
 
+	@Override
+	public void migrateFilesToDB() throws PizzaException {
+
+	}
+
 }

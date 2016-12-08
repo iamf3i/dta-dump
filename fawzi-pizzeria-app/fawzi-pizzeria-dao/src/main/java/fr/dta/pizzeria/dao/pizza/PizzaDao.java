@@ -17,4 +17,6 @@ public interface PizzaDao {
 	boolean deletePizza(String codePizza) throws PizzaException;
 
 	Optional<Pizza> getPizzaIdFromCode(String codePizza);
+
+	void migrateFilesToDB() throws PizzaException;
 }

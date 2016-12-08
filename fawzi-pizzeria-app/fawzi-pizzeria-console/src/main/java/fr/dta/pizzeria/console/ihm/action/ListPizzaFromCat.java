@@ -17,7 +17,6 @@ public class ListPizzaFromCat extends Action {
 
 	@Override
 	public void doAction() throws PizzaException {
-		// TODO Auto-generated method stub
 		Map<CategoriePizza, List<Pizza>> pizzas = pizzaDao.findAllPizzas().stream()
 				.collect(Collectors.groupingBy(Pizza::getCat));
 		pizzas.entrySet().stream().forEach(System.out::println);
@@ -25,14 +24,13 @@ public class ListPizzaFromCat extends Action {
 
 	@Override
 	public void describeAction() {
-		// TODO Auto-generated method stub
 		System.out.println(this.getDescription());
 	}
 
 	public ListPizzaFromCat(IhmUtil utils) {
 		super();
 		this.utils = utils;
-		this.setDescription("5. Lister les pizzas groupées par catégorie");
+		this.setDescription("5. Lister les pizzas groupï¿½es par catï¿½gorie");
 		this.pizzaDao = utils.getPizzaDao();
 	}
 

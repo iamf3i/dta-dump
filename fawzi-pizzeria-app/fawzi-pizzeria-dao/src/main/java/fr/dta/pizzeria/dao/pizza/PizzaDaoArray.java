@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import fr.dta.pizzeria.dao.exception.DeletePizzaException;
+import fr.dta.pizzeria.dao.exception.PizzaException;
 import fr.dta.pizzeria.dao.exception.SavePizzaException;
 import fr.dta.pizzeria.model.CategoriePizza;
 import fr.dta.pizzeria.model.Pizza;
@@ -71,4 +72,11 @@ public class PizzaDaoArray implements PizzaDao {
 
 		return this.pizzas.stream().filter(p -> p.getId() == Integer.parseInt(codePizza)).findFirst();
 	}
+
+	@Override
+	public void migrateFilesToDB() throws PizzaException {
+		// TODO Auto-generated method stub
+
+	}
+
 }

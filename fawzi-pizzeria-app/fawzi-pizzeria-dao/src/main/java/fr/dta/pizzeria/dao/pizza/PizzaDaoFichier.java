@@ -17,7 +17,8 @@ public class PizzaDaoFichier implements PizzaDao {
 	public List<Pizza> findAllPizzas() throws PizzaException {
 
 		List<Pizza> ret = new ArrayList<Pizza>();
-		File dir = new File("C:\\Users\\ETY5\\Documents\\WORKSPACE\\src\\pizzeria-console-objet\\data");
+		File dir = new File(
+				"C:/Users/ETY5/Documents/WORKSPACE/src/fawzi-pizzeria-app/fawzi-pizzeria-console/src/main/resources/data");
 
 		dir.mkdir();
 
@@ -69,6 +70,12 @@ public class PizzaDaoFichier implements PizzaDao {
 	public Optional<Pizza> getPizzaIdFromCode(String codePizza) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void migrateFilesToDB() throws PizzaException {
+		// TODO Auto-generated method stub
+
 	}
 
 }

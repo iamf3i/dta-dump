@@ -9,6 +9,7 @@ import fr.dta.pizzeria.console.ihm.action.DeletePizza;
 import fr.dta.pizzeria.console.ihm.action.ExitMenu;
 import fr.dta.pizzeria.console.ihm.action.ListPizza;
 import fr.dta.pizzeria.console.ihm.action.ListPizzaFromCat;
+import fr.dta.pizzeria.console.ihm.action.MigrateFilesToDB;
 import fr.dta.pizzeria.console.ihm.action.ShowMostExpensivePizza;
 import fr.dta.pizzeria.console.ihm.action.UpdatePizza;
 
@@ -26,7 +27,8 @@ public class MainMenu implements Runnable {
 		this.menu.put(4, new DeletePizza(utils));
 		this.menu.put(5, new ListPizzaFromCat(utils));
 		this.menu.put(6, new ShowMostExpensivePizza(utils));
-		this.menu.put(7, new ExitMenu());
+		this.menu.put(7, new MigrateFilesToDB(utils));
+		this.menu.put(8, new ExitMenu());
 
 		this.utils = utils;
 	}
@@ -42,7 +44,7 @@ public class MainMenu implements Runnable {
 		try {
 			String input = utils.getScanner().next();
 			if (Integer.parseInt(input) == 99) {
-				this.menu.get(7).doAction();
+				this.menu.get(8).doAction();
 				return false;
 			} else if (Integer.parseInt(input) <= 7 && Integer.parseInt(input) > 0)
 				this.menu.get(Integer.parseInt(input)).doAction();

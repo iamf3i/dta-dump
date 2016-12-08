@@ -63,5 +63,11 @@
 				<dao.impl>fr.dta.pizzeria.dao.FichierDaoFactory</dao.impl>
 			</properties>
 		</profile>
+		<profile>
+            <id>dao-jdbc</id>
+            <properties>
+                <dao.impl>fr.dta.pizzeria.dao.JDBCDaoFactory</dao.impl>
+            </properties>
+        </profile>
 	</profiles>
 </project>

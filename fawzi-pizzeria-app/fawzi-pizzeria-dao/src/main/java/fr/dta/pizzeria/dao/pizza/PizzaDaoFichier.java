@@ -27,7 +27,6 @@ public class PizzaDaoFichier implements PizzaDao {
 			if (directoryListing != null) {
 				int i = 0;
 				for (File child : directoryListing) {
-					// System.out.println(i++);
 					Pizza p = new Pizza();
 					p.setId(i++);
 					Properties props = new Properties();

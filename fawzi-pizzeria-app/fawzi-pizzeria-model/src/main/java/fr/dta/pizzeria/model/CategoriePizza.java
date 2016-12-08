@@ -1,7 +1,7 @@
 package fr.dta.pizzeria.model;
 
 public enum CategoriePizza {
-	VIANDE("Viande"), POISSON("Poisson"), SANS_VIANDE("Sans Viande");
+	VIANDE("Viande"), POISSON("Poisson"), SANS_VIANDE("Sans_Viande");
 
 	private String cat;
 

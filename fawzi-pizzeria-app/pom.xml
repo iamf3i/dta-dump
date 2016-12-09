@@ -50,6 +50,16 @@
 				<artifactId>commons-collections</artifactId>
 				<version>3.2.2</version>
 			</dependency>
+			<dependency>
+				<groupId>org.hibernate.javax.persistence</groupId>
+				<artifactId>hibernate-jpa-2.1-api</artifactId>
+				<version>1.0.0.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>5.1.0.Final</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<profiles>
@@ -69,6 +79,12 @@
 			<id>dao-jdbc</id>
 			<properties>
 				<dao.impl>fr.dta.pizzeria.dao.JDBCDaoFactory</dao.impl>
+			</properties>
+		</profile>
+		<profile>
+			<id>dao-jpa</id>
+			<properties>
+				<dao.impl>fr.dta.pizzeria.dao.JPADaoFactory</dao.impl>
 			</properties>
 		</profile>
 	</profiles>

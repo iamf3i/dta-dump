@@ -1,27 +1,44 @@
 package fr.dta.pizzeria.model;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 
+@Entity
 public class Pizza {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
 	private String code;
 	private String nom;
 	private Double prix;
-	private CategoriePizza cat;
-	public static int nbPizzas;
 
-	public Pizza() {
-		super();
-	}
+	@Enumerated(EnumType.STRING)
+	private CategoriePizza cat;
+
+	@Transient
+	public static int nbPizzas;
 
 	public Pizza(int id, String code, String nom, double prix, CategoriePizza cat) {
 		super();
+
 		this.id = id;
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
 		this.cat = cat;
+	}
+
+	public Pizza() {
+
 	}
 
 	public int getId() {

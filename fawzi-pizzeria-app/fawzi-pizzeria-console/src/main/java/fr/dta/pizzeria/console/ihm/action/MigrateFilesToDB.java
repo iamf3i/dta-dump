@@ -20,7 +20,7 @@ public class MigrateFilesToDB extends Action {
 
 	public MigrateFilesToDB(IhmUtil utils) {
 		super();
-		this.setDescription("7. Migrer les pizzas dans la BDD à partir des fichiers");
+		this.setDescription("7. (Base de données) Importer les données");
 		this.utils = utils;
 	}
 }

@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.Properties;
 
 import fr.dta.pizzeria.dao.exception.PizzaException;
+import fr.dta.pizzeria.model.CategoriePizza;
 import fr.dta.pizzeria.model.Pizza;
 
 public class PizzaDaoFichier implements PizzaDao {
@@ -18,7 +19,7 @@ public class PizzaDaoFichier implements PizzaDao {
 
 		List<Pizza> ret = new ArrayList<Pizza>();
 		File dir = new File(
-				"C:/Users/ETY5/Documents/WORKSPACE/src/fawzi-pizzeria-app/fawzi-pizzeria-console/src/main/resources/data");
+				"C:\\Users\\ETY5\\Documents\\WORKSPACE\\src\\fawzi-pizzeria-app\\fawzi-pizzeria-console\\src\\main\\resources\\data");
 
 		dir.mkdir();
 
@@ -39,12 +40,13 @@ public class PizzaDaoFichier implements PizzaDao {
 					p.setCode(props.getProperty("code"));
 					p.setNom(props.getProperty("nom"));
 					p.setPrix(Double.parseDouble(props.getProperty("prix")));
+					p.setCat(CategoriePizza.valueOf(props.getProperty("categorie")));
 					ret.add(p);
 				}
-			} else
+			} else {
 				return null;
+			}
 		}
-
 		return ret;
 	}
 
@@ -70,12 +72,6 @@ public class PizzaDaoFichier implements PizzaDao {
 	public Optional<Pizza> getPizzaIdFromCode(String codePizza) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public void migrateFilesToDB() throws PizzaException {
-		// TODO Auto-generated method stub
-
 	}
 
 }

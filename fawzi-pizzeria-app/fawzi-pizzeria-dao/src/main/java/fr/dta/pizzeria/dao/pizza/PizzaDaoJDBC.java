@@ -68,9 +68,12 @@ public class PizzaDaoJDBC implements PizzaDao {
 			System.out.println(req); // Testing purpose
 
 			Integer nbPizza = statement.executeUpdate(req);
+
 			if (nbPizza != null)
 				return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
@@ -94,6 +97,13 @@ public class PizzaDaoJDBC implements PizzaDao {
 	@Override
 	public void migrateFilesToDB() throws PizzaException {
 
+		PizzaDaoFichier dao = new PizzaDaoFichier();
+		List<Pizza> pizzas = dao.findAllPizzas();
+
+		for (Pizza p : pizzas) {
+
+			this.saveNewPizza(p);
+		}
 	}
 
 }

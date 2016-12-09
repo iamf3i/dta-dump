@@ -45,26 +45,31 @@
 				<version>5.1.40</version>
 				<scope>runtime</scope>
 			</dependency>
+			<dependency>
+				<groupId>commons-collections</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>3.2.2</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<profiles>
-        <profile>
-            <id>dao-array</id>
-            <properties>
-                <dao.impl>fr.dta.pizzeria.dao.ArrayDaoFactory</dao.impl>
-            </properties>
-        </profile>
-        <profile>
-            <id>dao-files</id>
-            <properties>
-                <dao.impl>fr.dta.pizzeria.dao.FichierDaoFactory</dao.impl>
-            </properties>
-        </profile>
-        <profile>
-            <id>dao-jdbc</id>
-            <properties>
-                <dao.impl>fr.dta.pizzeria.dao.JDBCDaoFactory</dao.impl>
-            </properties>
-        </profile>
-    </profiles>
+		<profile>
+			<id>dao-array</id>
+			<properties>
+				<dao.impl>fr.dta.pizzeria.dao.ArrayDaoFactory</dao.impl>
+			</properties>
+		</profile>
+		<profile>
+			<id>dao-files</id>
+			<properties>
+				<dao.impl>fr.dta.pizzeria.dao.FichierDaoFactory</dao.impl>
+			</properties>
+		</profile>
+		<profile>
+			<id>dao-jdbc</id>
+			<properties>
+				<dao.impl>fr.dta.pizzeria.dao.JDBCDaoFactory</dao.impl>
+			</properties>
+		</profile>
+	</profiles>
 </project>

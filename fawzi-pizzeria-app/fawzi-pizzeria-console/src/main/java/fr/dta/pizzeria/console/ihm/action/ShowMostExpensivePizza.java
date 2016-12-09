@@ -29,7 +29,7 @@ public class ShowMostExpensivePizza extends Action {
 
 	public ShowMostExpensivePizza(IhmUtil utils) {
 		super();
-		this.setDescription("6. Afficher la pizza au tarif le plus élevé");
+		this.setDescription("6. Afficher la pizza au tarif le plus Ã©levÃ©");
 		this.pizzaDao = utils.getPizzaDao();
 	}
 

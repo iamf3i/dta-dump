@@ -22,9 +22,9 @@ public class DeletePizza extends Action {
 	private void printPizzaList() throws PizzaException {
 
 		for (Pizza p : pizzaDao.findAllPizzas()) {
-			System.out.println(p.getCode() + " - " + p.getNom() + " (" + p.getPrix() + " €)");
+			System.out.println(p.getCode() + " - " + p.getNom() + " (" + p.getPrix() + " â‚¬)");
 		}
-		System.out.println("Veuillez choisir la pizza à supprimer.");
+		System.out.println("Veuillez choisir la pizza Ã  supprimer.");
 		System.out.println("(99 pour abandonner).");
 	}
 

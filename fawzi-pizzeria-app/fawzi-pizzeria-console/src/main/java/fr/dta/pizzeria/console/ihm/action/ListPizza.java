@@ -18,7 +18,7 @@ public class ListPizza extends Action {
 	public void doAction() throws PizzaException {
 
 		for (Pizza p : utils.getPizzaDao().findAllPizzas()) {
-			System.out.println(p.getCode() + " -> " + p.getNom() + " (" + p.getPrix() + " €)");
+			System.out.println(p.getCode() + " -> " + p.getNom() + " (" + p.getPrix() + " â‚¬)");
 		}
 	}
 

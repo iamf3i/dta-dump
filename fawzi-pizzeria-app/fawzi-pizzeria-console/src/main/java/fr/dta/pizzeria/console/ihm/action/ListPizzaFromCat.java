@@ -10,10 +10,24 @@ import fr.dta.pizzeria.dao.pizza.PizzaDao;
 import fr.dta.pizzeria.model.CategoriePizza;
 import fr.dta.pizzeria.model.Pizza;
 
+/**
+ * 
+ * @author ETY5
+ *
+ */
 public class ListPizzaFromCat extends Action {
 
-	private IhmUtil utils;
 	private PizzaDao pizzaDao;
+
+	/**
+	 * 
+	 * @param utils
+	 */
+	public ListPizzaFromCat(IhmUtil utils) {
+		super();
+		this.setDescription("5. Lister les pizzas groupées par catégorie");
+		this.pizzaDao = utils.getPizzaDao();
+	}
 
 	@Override
 	public void doAction() throws PizzaException {
@@ -25,13 +39,6 @@ public class ListPizzaFromCat extends Action {
 	@Override
 	public void describeAction() {
 		System.out.println(this.getDescription());
-	}
-
-	public ListPizzaFromCat(IhmUtil utils) {
-		super();
-		this.utils = utils;
-		this.setDescription("5. Lister les pizzas group�es par cat�gorie");
-		this.pizzaDao = utils.getPizzaDao();
 	}
 
 }

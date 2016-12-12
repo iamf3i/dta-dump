@@ -23,4 +23,10 @@ public interface PizzaDao {
 		throw new MigrateFilesToDBException(
 				"Veuillez configurer l’application avec une implémentation base de données");
 	}
+
+	/**
+	 * Do nothing for pizza Daos with no resources
+	 */
+	default void closeResources() {
+	}
 }

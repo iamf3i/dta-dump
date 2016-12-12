@@ -20,6 +20,7 @@ public class Pizza {
 	private String code;
 	private String nom;
 	private Double prix;
+	private String url_image;
 
 	@Enumerated(EnumType.STRING)
 	private CategoriePizza cat;

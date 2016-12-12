@@ -22,7 +22,6 @@ public class PizzaDaoJPA implements PizzaDao {
 		java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
 		this.emf = Persistence.createEntityManagerFactory("JPAUNIT");
 		this.em = this.emf.createEntityManager();
-
 	}
 
 	@Override
@@ -57,6 +56,16 @@ public class PizzaDaoJPA implements PizzaDao {
 	public Optional<Pizza> getPizzaIdFromCode(String codePizza) {
 
 		return null;
+	}
+
+	@Override
+	public void closeResources() {
+		try {
+			this.em.close();
+			this.emf.close();
+		} finally {
+
+		}
 	}
 
 }

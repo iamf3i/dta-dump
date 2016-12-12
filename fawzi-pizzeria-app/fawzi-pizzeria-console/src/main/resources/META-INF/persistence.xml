@@ -9,7 +9,6 @@
         <class>fr.dta.pizzeria.model.Client</class>
         <class>fr.dta.pizzeria.model.Livreur</class>
         <class>fr.dta.pizzeria.model.Commande</class>
-        <class>fr.dta.pizzeria.model.CommandePizza</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value='com.mysql.jdbc.Driver'/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/realpizzeria"/>

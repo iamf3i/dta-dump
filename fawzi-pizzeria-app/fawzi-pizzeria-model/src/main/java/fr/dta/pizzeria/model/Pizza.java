@@ -1,5 +1,6 @@
 package fr.dta.pizzeria.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -20,7 +21,8 @@ public class Pizza {
 	private String code;
 	private String nom;
 	private Double prix;
-	private String url_image;
+	@Column(name = "url_image")
+	private String urlImage;
 
 	@Enumerated(EnumType.STRING)
 	private CategoriePizza cat;

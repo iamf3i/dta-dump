@@ -1,9 +1,13 @@
 package fr.dta.pizzeria.model;
 
+import java.util.Set;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Client {
@@ -14,5 +18,9 @@ public class Client {
 
 	String nom;
 	String prenom;
-	String mot_de_passe;
+	@Column(name = "mot_de_passe")
+	String motDePasse;
+
+	@OneToMany(mappedBy = "client")
+	private Set<Commande> commandes;
 }

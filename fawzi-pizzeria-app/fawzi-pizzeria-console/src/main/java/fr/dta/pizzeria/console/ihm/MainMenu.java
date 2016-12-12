@@ -45,7 +45,9 @@ public class MainMenu implements Runnable {
 			String input = utils.getScanner().next();
 			if (Integer.parseInt(input) == 99) {
 				this.menu.get(8).doAction();
-				this.utils.getPizzaDao().closeResources();
+				this.utils.getPizzaDao().closeResources(); // Will do nothing
+															// for DAOs with no
+															// resources
 				return false;
 			} else if (Integer.parseInt(input) <= 7 && Integer.parseInt(input) > 0)
 				this.menu.get(Integer.parseInt(input)).doAction();

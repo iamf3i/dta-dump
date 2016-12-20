@@ -1,0 +1,13 @@
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>PizzaServletWebApi</servlet-name>
+  	<display-name>PizzaServletWebApi</display-name>
+  	<description></description>
+  	<servlet-class>fr.pizzeria.admin.web.PizzaServletWebApi</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>PizzaServletWebApi</servlet-name>
+  	<url-pattern>/api/servlet/pizzas</url-pattern>
+  </servlet-mapping>
+</web-app>

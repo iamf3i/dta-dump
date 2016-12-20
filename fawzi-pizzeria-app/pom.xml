@@ -13,6 +13,7 @@
 		<module>fawzi-pizzeria-dao</module>
 		<module>fawzi-pizzeria-model</module>
 		<module>fawzi-pizzeria-client</module>
+		<module>fawzi-pizzeria-admin-app</module>
 	</modules>
 	<build>
 		<resources>

@@ -24,6 +24,7 @@ public class Pizza {
 	@Column(name = "url_image")
 	private String urlImage;
 
+	@Column(name = "categorie")
 	@Enumerated(EnumType.STRING)
 	private CategoriePizza cat;
 

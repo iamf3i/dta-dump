@@ -13,6 +13,7 @@ public class PizzeriaAdminConsoleApp {
 
 		ResourceBundle bundle = ResourceBundle.getBundle("application");
 		String daoConfig = bundle.getString("dao.impl");
+		System.out.println(Class.forName(daoConfig));
 		DaoFactory daoFactory = (DaoFactory) Class.forName(daoConfig).newInstance();
 
 		IhmUtil utils = new IhmUtil(new Scanner(System.in), daoFactory);

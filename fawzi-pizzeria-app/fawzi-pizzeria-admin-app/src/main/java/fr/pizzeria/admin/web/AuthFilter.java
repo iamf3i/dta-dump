@@ -22,7 +22,6 @@ public class AuthFilter implements Filter {
 	 * Default constructor.
 	 */
 	public AuthFilter() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -30,7 +29,6 @@ public class AuthFilter implements Filter {
 	 */
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
 	}
 
 	/**
@@ -39,7 +37,6 @@ public class AuthFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		// TODO Auto-generated method stub
 		// place your code here
 
 		// pass the request along the filter chain
@@ -57,7 +54,6 @@ public class AuthFilter implements Filter {
 	 */
 	@Override
 	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
 	}
 
 }

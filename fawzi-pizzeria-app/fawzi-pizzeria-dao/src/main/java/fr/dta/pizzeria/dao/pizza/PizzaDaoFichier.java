@@ -18,8 +18,12 @@ public class PizzaDaoFichier implements PizzaDao {
 	public List<Pizza> findAllPizzas() throws PizzaException {
 
 		List<Pizza> ret = new ArrayList<Pizza>();
-		File dir = new File(
-				"C:\\Users\\ETY5\\Documents\\WORKSPACE\\src\\fawzi-pizzeria-app\\fawzi-pizzeria-console\\src\\main\\resources\\data");
+
+		// Basic and Ugly abstraction for pizzas File location in filesystem
+		String home = "C:\\Users\\fawzi\\Documents\\workspace-sts-3.8.2.RELEASE\\formation-dta\\fawzi-pizzeria-app\\fawzi-pizzeria-console\\src\\main\\resources\\data";
+		String dta = "C:\\Users\\ETY5\\Documents\\WORKSPACE\\src\\fawzi-pizzeria-app\\fawzi-pizzeria-console\\src\\main\\resources\\data";
+
+		File dir = new File(home);
 
 		dir.mkdir();
 

@@ -29,13 +29,21 @@
 			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
-        <dependency>
-            <groupId>fr.dta</groupId>
-            <artifactId>fawzi-pizzeria-model</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>fr.dta</groupId>
+			<artifactId>fawzi-pizzeria-model</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
 		<finalName>fawzi-pizzeria-admin-app</finalName>
 	</build>
 </project>

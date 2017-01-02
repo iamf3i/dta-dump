@@ -19,7 +19,33 @@ public class PizzaServiceEJB {
     public List<Pizza> findAllPizzas() {
 
         TypedQuery<Pizza> pizzas = em.createQuery("SELECT p from Pizza p", Pizza.class);
-        System.out.println(em.find(Pizza.class, 1));
         return pizzas.getResultList();
+    }
+
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    public boolean savePizza(Pizza p) {
+
+        em.persist(p);
+        return true;
+    }
+
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    public Pizza getById(int id) {
+
+        return em.find(Pizza.class, id);
+    }
+
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    public boolean deleteById(int id) {
+
+        em.remove(em.find(Pizza.class, id));
+        return true;
+    }
+
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    public boolean updateById(int id) {
+
+        Pizza p = em.find(Pizza.class, id);
+        return true;
     }
 }

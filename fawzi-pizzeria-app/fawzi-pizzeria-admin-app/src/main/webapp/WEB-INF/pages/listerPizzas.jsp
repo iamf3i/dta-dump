@@ -19,10 +19,14 @@
 			<div class="row">
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
-					<form action="/logout" class="navbar-form navbar-right"
-						method="post">
-						<button type="submit" class="btn btn-primary">Logout</button>
-					</form>
+                    <form action="/logout" class="navbar-form navbar-right"
+                          method="post">
+                        <button type="submit" class="btn btn-primary">Logout</button>
+                    </form>
+                    <form action="/clients" class="navbar-form navbar-right"
+                          method="post">
+                        <button type="submit" class="btn btn-primary">Clients</button>
+                    </form>
 				</div>
 			</div>
 			<div class="row">

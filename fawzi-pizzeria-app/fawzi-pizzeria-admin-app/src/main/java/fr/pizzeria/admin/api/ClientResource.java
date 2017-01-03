@@ -19,6 +19,7 @@ public class ClientResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Client> getClientList() {
+        System.out.println("IN GET <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 
         return dao.findAllClients();
     }
@@ -34,6 +35,9 @@ public class ClientResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createClient(Client c) {
+
+        System.out.println("IN POST <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        System.out.println(c);
 
         dao.saveClient(c);
 

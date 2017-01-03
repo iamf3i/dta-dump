@@ -18,7 +18,7 @@ public class PizzaResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Pizza> read() {
+    public List<Pizza> getPizzaList() {
 
         return dao.findAllPizzas();
     }
@@ -26,14 +26,14 @@ public class PizzaResource {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Pizza getById(@PathParam("id") int id) {
+    public Pizza getPizzaById(@PathParam("id") int id) {
 
         return dao.getById(id);
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response create(Pizza p) {
+    public Response createPizza(Pizza p) {
 
         dao.savePizza(p);
 
@@ -46,8 +46,16 @@ public class PizzaResource {
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public boolean deleteById(@PathParam("id") int id) {
+    public boolean deletePizzaById(@PathParam("id") int id) {
 
         return dao.deleteById(id);
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public boolean putPizza(@PathParam("id") int id, Pizza p) {
+
+        return dao.putPizza(id, p);
     }
 }

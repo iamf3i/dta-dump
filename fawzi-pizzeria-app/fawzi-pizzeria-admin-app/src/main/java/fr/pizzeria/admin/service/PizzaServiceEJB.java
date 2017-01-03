@@ -43,9 +43,16 @@ public class PizzaServiceEJB {
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    public boolean updateById(int id) {
+    public boolean putPizza(int id, Pizza p) {
 
-        Pizza p = em.find(Pizza.class, id);
+        Pizza old = em.find(Pizza.class, id);
+
+        old.setCat(p.getCat());
+        old.setCode(p.getCode());
+        old.setNom(p.getNom());
+        old.setPrix(p.getPrix());
+        em.persist(old);
+
         return true;
     }
 }

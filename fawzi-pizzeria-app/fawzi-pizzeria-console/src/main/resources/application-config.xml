@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <bean id="mainMenu" class="fr.dta.pizzeria.console.ihm.MainMenu">
+        <constructor-arg ref="ihmUtil" />
+    </bean>
+
+    <bean id="ihmUtil" class="fr.dta.pizzeria.console.ihm.IhmUtil">
+        <constructor-arg ref="scanner" />
+        <constructor-arg ref="arrayDaoFactory" />
+    </bean>
+
+    <bean id="scanner" class="java.util.Scanner">
+        <constructor-arg>
+            <util:constant static-field="java.lang.System.in" />
+        </constructor-arg>
+    </bean>
+
+</beans>

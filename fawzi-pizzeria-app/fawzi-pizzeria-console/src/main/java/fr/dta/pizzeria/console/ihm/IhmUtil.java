@@ -1,9 +1,9 @@
 package fr.dta.pizzeria.console.ihm;
 
-import java.util.Scanner;
-
 import fr.dta.pizzeria.dao.DaoFactory;
 import fr.dta.pizzeria.dao.pizza.PizzaDao;
+
+import java.util.Scanner;
 
 public class IhmUtil {
 

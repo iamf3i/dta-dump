@@ -2,19 +2,19 @@ package fr.dta.pizzeria.console.ihm;
 
 import fr.dta.pizzeria.dao.DaoFactory;
 import fr.dta.pizzeria.dao.pizza.PizzaDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
 
+@Controller
 public class IhmUtil {
 
-	private Scanner scanner;
+    @Autowired
+    private Scanner scanner;
+
+    @Autowired
 	private DaoFactory pizzaDaoFactory;
-
-	public IhmUtil(Scanner scanner, DaoFactory pizzaDao) {
-
-		this.scanner = scanner;
-		this.pizzaDaoFactory = pizzaDao;
-	}
 
 	public Scanner getScanner() {
 		return scanner;

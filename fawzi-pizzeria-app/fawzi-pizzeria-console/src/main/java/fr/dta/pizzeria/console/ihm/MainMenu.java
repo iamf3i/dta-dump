@@ -1,37 +1,33 @@
 package fr.dta.pizzeria.console.ihm;
 
+import fr.dta.pizzeria.console.ihm.action.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 
-import fr.dta.pizzeria.console.ihm.action.Action;
-import fr.dta.pizzeria.console.ihm.action.AddPizza;
-import fr.dta.pizzeria.console.ihm.action.DeletePizza;
-import fr.dta.pizzeria.console.ihm.action.ExitMenu;
-import fr.dta.pizzeria.console.ihm.action.ListPizza;
-import fr.dta.pizzeria.console.ihm.action.ListPizzaFromCat;
-import fr.dta.pizzeria.console.ihm.action.MigrateFilesToDB;
-import fr.dta.pizzeria.console.ihm.action.ShowMostExpensivePizza;
-import fr.dta.pizzeria.console.ihm.action.UpdatePizza;
-
+@Controller
 public class MainMenu implements Runnable {
 
 	Map<Integer, Action> menu = new HashMap<Integer, Action>();
 
-	IhmUtil utils;
+	@Autowired
+    IhmUtil utils;
 
-	public MainMenu(IhmUtil utils) {
+    @PostConstruct
+    public void init() {
 
-		this.menu.put(1, new ListPizza(utils));
-		this.menu.put(2, new AddPizza(utils));
-		this.menu.put(3, new UpdatePizza(utils));
-		this.menu.put(4, new DeletePizza(utils));
-		this.menu.put(5, new ListPizzaFromCat(utils));
-		this.menu.put(6, new ShowMostExpensivePizza(utils));
-		this.menu.put(7, new MigrateFilesToDB(utils));
-		this.menu.put(8, new ExitMenu());
-
-		this.utils = utils;
-	}
+        this.menu.put(1, new ListPizza(utils));
+        this.menu.put(2, new AddPizza(utils));
+        this.menu.put(3, new UpdatePizza(utils));
+        this.menu.put(4, new DeletePizza(utils));
+        this.menu.put(5, new ListPizzaFromCat(utils));
+        this.menu.put(6, new ShowMostExpensivePizza(utils));
+        this.menu.put(7, new MigrateFilesToDB(utils));
+        this.menu.put(8, new ExitMenu());
+    }
 
 	private void displayMenu() {
 

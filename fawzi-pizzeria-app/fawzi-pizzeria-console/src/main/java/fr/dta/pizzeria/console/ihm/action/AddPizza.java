@@ -1,34 +1,42 @@
 package fr.dta.pizzeria.console.ihm.action;
 
-import fr.dta.pizzeria.console.ihm.IhmUtil;
 import fr.dta.pizzeria.dao.exception.PizzaException;
+import fr.dta.pizzeria.dao.pizza.PizzaDao;
 import fr.dta.pizzeria.model.CategoriePizza;
 import fr.dta.pizzeria.model.Pizza;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
+import java.util.Scanner;
+
+@Controller
 public class AddPizza extends Action {
 
-	private IhmUtil utils;
+    @Autowired
+    Scanner scan;
 
-	public AddPizza(IhmUtil utils) {
+    @Autowired
+    PizzaDao dao;
+
+	public AddPizza() {
 		super();
 		this.setDescription("2. Ajouter une nouvelle pizza");
-		this.utils = utils;
 	}
 
 	@Override
 	public void doAction() throws PizzaException {
 
 		System.out.println("Veuillez saisir le code");
-		String code = this.utils.getScanner().next();
+		String code = scan.next();
 
 		System.out.println("Veuillez saisir le nom (sans espace)");
-		String name = this.utils.getScanner().next();
+		String name = scan.next();
 
 		System.out.println("Veuillez saisir la catégorie");
-		String cat = this.utils.getScanner().next();
+		String cat = scan.next();
 
 		System.out.println("Veuillez saisir le prix");
-		String price = this.utils.getScanner().next();
+		String price = scan.next();
 
 		Pizza newPizza = new Pizza();
 
@@ -37,7 +45,7 @@ public class AddPizza extends Action {
 		newPizza.setCat(CategoriePizza.valueOf(cat));
 		newPizza.setPrix(Double.parseDouble(price));
 
-		utils.getPizzaDao().saveNewPizza(newPizza);
+		dao.saveNewPizza(newPizza);
 	}
 
 	@Override

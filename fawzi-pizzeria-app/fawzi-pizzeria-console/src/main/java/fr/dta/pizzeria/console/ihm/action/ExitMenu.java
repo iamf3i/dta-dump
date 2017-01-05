@@ -1,5 +1,8 @@
 package fr.dta.pizzeria.console.ihm.action;
 
+import org.springframework.stereotype.Controller;
+
+@Controller
 public class ExitMenu extends Action {
 
 	public ExitMenu() {

@@ -1,32 +1,35 @@
 package fr.dta.pizzeria.console.ihm.action;
 
-import java.util.Scanner;
-
-import fr.dta.pizzeria.console.ihm.IhmUtil;
 import fr.dta.pizzeria.dao.exception.PizzaException;
 import fr.dta.pizzeria.dao.exception.UpdatePizzaException;
 import fr.dta.pizzeria.dao.pizza.PizzaDao;
 import fr.dta.pizzeria.model.Pizza;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import java.util.Scanner;
 
 /**
  * 
  * @author ETY5
  *
  */
+@Controller
 public class UpdatePizza extends Action {
 
-	private Scanner reader;
-	private PizzaDao pizzaDao;
+	@Autowired
+	Scanner reader;
+
+	@Autowired
+	PizzaDao pizzaDao;
 
 	/**
 	 * 
-	 * @param utils
+	 * @param
 	 */
-	public UpdatePizza(IhmUtil utils) {
+	public UpdatePizza() {
 		super();
 		this.setDescription("3. Mettre à jour une pizza");
-		this.reader = utils.getScanner();
-		this.pizzaDao = utils.getPizzaDao();
 	}
 
 	private void printPizzaList() throws PizzaException {

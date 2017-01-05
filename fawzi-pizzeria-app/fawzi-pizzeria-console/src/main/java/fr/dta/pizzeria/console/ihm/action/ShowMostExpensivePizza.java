@@ -1,20 +1,23 @@
 package fr.dta.pizzeria.console.ihm.action;
 
-import java.util.Comparator;
-import java.util.List;
-
-import fr.dta.pizzeria.console.ihm.IhmUtil;
 import fr.dta.pizzeria.dao.exception.PizzaException;
 import fr.dta.pizzeria.dao.pizza.PizzaDao;
 import fr.dta.pizzeria.model.Pizza;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
+import java.util.Comparator;
+import java.util.List;
+
+@Controller
 public class ShowMostExpensivePizza extends Action {
 
-	private PizzaDao pizzaDao;
+	@Autowired
+	PizzaDao dao;
 
 	@Override
 	public void doAction() throws PizzaException {
-		List<Pizza> pizzas = pizzaDao.findAllPizzas();
+		List<Pizza> pizzas = dao.findAllPizzas();
 
 		final Comparator<Pizza> comp = Comparator.comparing(Pizza::getPrix);
 		Pizza expensive = pizzas.stream().max(comp).get();
@@ -27,10 +30,9 @@ public class ShowMostExpensivePizza extends Action {
 		System.out.println(this.getDescription());
 	}
 
-	public ShowMostExpensivePizza(IhmUtil utils) {
+	public ShowMostExpensivePizza() {
 		super();
 		this.setDescription("6. Afficher la pizza au tarif le plus élevé");
-		this.pizzaDao = utils.getPizzaDao();
 	}
 
 }

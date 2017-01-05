@@ -1,33 +1,29 @@
 package fr.dta.pizzeria.console.ihm;
 
 import fr.dta.pizzeria.console.ihm.action.*;
+import fr.dta.pizzeria.dao.pizza.PizzaDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.PostConstruct;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 @Controller
 public class MainMenu implements Runnable {
 
-	Map<Integer, Action> menu = new HashMap<Integer, Action>();
+    @Autowired
+	Map<Integer, Action> menu;
+
+    @Autowired
+    PizzaDao dao;
 
 	@Autowired
-    IhmUtil utils;
+    ApplicationContext context;
 
-    @PostConstruct
-    public void init() {
-
-        this.menu.put(1, new ListPizza(utils));
-        this.menu.put(2, new AddPizza(utils));
-        this.menu.put(3, new UpdatePizza(utils));
-        this.menu.put(4, new DeletePizza(utils));
-        this.menu.put(5, new ListPizzaFromCat(utils));
-        this.menu.put(6, new ShowMostExpensivePizza(utils));
-        this.menu.put(7, new MigrateFilesToDB(utils));
-        this.menu.put(8, new ExitMenu());
-    }
+	@Autowired
+    Scanner scan;
 
 	private void displayMenu() {
 
@@ -38,10 +34,10 @@ public class MainMenu implements Runnable {
 	private boolean parseAndExec() {
 
 		try {
-			String input = utils.getScanner().next();
+			String input = scan.next();
 			if (Integer.parseInt(input) == 99) {
 				this.menu.get(8).doAction();
-				this.utils.getPizzaDao().closeResources(); // Will do nothing
+				dao.closeResources(); // Will do nothing
 															// for DAOs with no
 															// resources
 				return false;

@@ -1,16 +1,20 @@
 package fr.dta.pizzeria.console.ihm.action;
 
-import fr.dta.pizzeria.console.ihm.IhmUtil;
 import fr.dta.pizzeria.dao.exception.PizzaException;
+import fr.dta.pizzeria.dao.pizza.PizzaDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class MigrateFilesToDB extends Action {
 
-	private IhmUtil utils;
+	@Autowired
+	PizzaDao dao;
 
 	@Override
 	public void doAction() throws PizzaException {
 
-		utils.getPizzaDao().migrateFilesToDB();
+		dao.migrateFilesToDB();
 	}
 
 	@Override
@@ -18,9 +22,8 @@ public class MigrateFilesToDB extends Action {
 		System.out.println(this.getDescription());
 	}
 
-	public MigrateFilesToDB(IhmUtil utils) {
+	public MigrateFilesToDB() {
 		super();
 		this.setDescription("7. (Base de données) Importer les données");
-		this.utils = utils;
 	}
 }

@@ -1,22 +1,25 @@
 package fr.dta.pizzeria.console.ihm.action;
 
-import java.util.Scanner;
-
-import fr.dta.pizzeria.console.ihm.IhmUtil;
 import fr.dta.pizzeria.dao.exception.PizzaException;
 import fr.dta.pizzeria.dao.pizza.PizzaDao;
 import fr.dta.pizzeria.model.Pizza;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
+import java.util.Scanner;
+
+@Controller
 public class DeletePizza extends Action {
 
-	private Scanner reader;
-	private PizzaDao pizzaDao;
+	@Autowired
+	Scanner scan;
 
-	public DeletePizza(IhmUtil utils) {
+	@Autowired
+	PizzaDao pizzaDao;
+
+	public DeletePizza() {
 		super();
 		this.setDescription("4. Supprimer une pizza");
-		this.reader = utils.getScanner();
-		this.pizzaDao = utils.getPizzaDao();
 	}
 
 	private void printPizzaList() throws PizzaException {
@@ -35,7 +38,7 @@ public class DeletePizza extends Action {
 		while (true) {
 			printPizzaList();
 
-			String code = reader.next();
+			String code = scan.next();
 
 			if (code.equals("99")) {
 				break;

@@ -1,32 +1,34 @@
 package fr.dta.pizzeria.console.ihm.action;
 
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import fr.dta.pizzeria.console.ihm.IhmUtil;
 import fr.dta.pizzeria.dao.exception.PizzaException;
 import fr.dta.pizzeria.dao.pizza.PizzaDao;
 import fr.dta.pizzeria.model.CategoriePizza;
 import fr.dta.pizzeria.model.Pizza;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * 
  * @author ETY5
  *
  */
+@Controller
 public class ListPizzaFromCat extends Action {
 
+	@Autowired
 	private PizzaDao pizzaDao;
 
 	/**
 	 * 
-	 * @param utils
+	 * @param
 	 */
-	public ListPizzaFromCat(IhmUtil utils) {
+	public ListPizzaFromCat() {
 		super();
 		this.setDescription("5. Lister les pizzas groupées par catégorie");
-		this.pizzaDao = utils.getPizzaDao();
 	}
 
 	@Override

@@ -31,16 +31,16 @@ public class PizzaDaoJTPL implements PizzaDao {
     @Override
     public List<Pizza> findAllPizzas() throws PizzaException{
 
-        String sql = "SELECT * FROM pizzas";
+        String sql = "SELECT * FROM pizza";
 
         return this.jdbcTemplate.query(sql, new PizzaMapper());
     }
 
     @Override
     public boolean saveNewPizza(Pizza pizza) throws PizzaException {
-        String sql = "INSERT INTO PIZZAS (ID,NOM) VALUES(?,?)";
+        String sql = "INSERT INTO PIZZA (ID,NOM,CODE) VALUES(?,?,?)";
 
-        this.jdbcTemplate.update(sql, pizza.getId(), pizza.getNom());
+        this.jdbcTemplate.update(sql, pizza.getId(), pizza.getNom(), pizza.getCode());
         return true;
     }
 
@@ -66,6 +66,8 @@ public class PizzaDaoJTPL implements PizzaDao {
             Pizza p = new Pizza();
             p.setId(rs.getInt("id"));
             p.setNom(rs.getString("nom"));
+            p.setCode(rs.getString("code"));
+            p.setPrix(rs.getDouble("prix"));
             return p;
         }
 

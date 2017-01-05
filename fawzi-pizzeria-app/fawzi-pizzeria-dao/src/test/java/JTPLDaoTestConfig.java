@@ -15,6 +15,7 @@ import javax.sql.DataSource;
 @ComponentScan("fr.dta.pizzeria.dao")
 public class JTPLDaoTestConfig {
 
+    @Bean
     public DataSource getDataSource(){
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -25,7 +26,6 @@ public class JTPLDaoTestConfig {
         return dataSource;
     }
 
-    @Bean
     public DataSource getAnotherDataSource(){
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
 

@@ -38,7 +38,7 @@ public class JTPLDaoTest {
         Pizza add = new  Pizza();
 
         add.setNom("SALUTE");
-        add.setId(18);
+        add.setCode("POP");
 
         jtpl.saveNewPizza(add);
 

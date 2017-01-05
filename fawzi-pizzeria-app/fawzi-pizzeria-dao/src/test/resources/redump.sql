@@ -1,4 +1,4 @@
-CREATE TABLE `pizzas` (
+CREATE TABLE `pizza` (
   `id` int(11) NOT NULL,
   `categorie` varchar(255) DEFAULT NULL,
   `code` varchar(255) DEFAULT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE `pizzas` (
 );
 
 
-INSERT INTO `pizzas` (`id`, `categorie`, `code`, `nom`, `prix`, `url_image`) VALUES
+INSERT INTO `pizza` (`id`, `categorie`, `code`, `nom`, `prix`, `url_image`) VALUES
 (1, 'VIANDE', 'CAN', 'CANNIBALE', 230, NULL),
 (2, 'VIANDE', 'FRO', '4 FROMAGES', 589, NULL),
 (3, 'VIANDE', 'MAR', 'MARGHARITA', 458, NULL),

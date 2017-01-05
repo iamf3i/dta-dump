@@ -1,6 +1,8 @@
 import fr.dta.pizzeria.dao.exception.PizzaException;
 import fr.dta.pizzeria.dao.pizza.PizzaDao;
 import fr.dta.pizzeria.model.Pizza;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +30,33 @@ public class JTPLDaoTest {
             System.out.println(pizza);
         }
 
+    }
+
+    @Test
+    public void testCreate() throws PizzaException {
+
+        Pizza add = new  Pizza();
+
+        add.setNom("SALUTE");
+        add.setId(18);
+
+        jtpl.saveNewPizza(add);
+
+        List<Pizza> p = jtpl.findAllPizzas();
+
+        for (Pizza pizza: p) {
+            System.out.println(pizza);
+        }
+
+    }
+
+    @Before
+    public void enter() {
+        System.out.println("ENTERING TEST --------------");
+    }
+
+    @After
+    public void out() {
+        System.out.println("EXIT TEST --------------");
     }
 }

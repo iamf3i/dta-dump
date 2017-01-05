@@ -38,7 +38,10 @@ public class PizzaDaoJTPL implements PizzaDao {
 
     @Override
     public boolean saveNewPizza(Pizza pizza) throws PizzaException {
-        return false;
+        String sql = "INSERT INTO PIZZAS (ID,NOM) VALUES(?,?)";
+
+        this.jdbcTemplate.update(sql, pizza.getId(), pizza.getNom());
+        return true;
     }
 
     @Override

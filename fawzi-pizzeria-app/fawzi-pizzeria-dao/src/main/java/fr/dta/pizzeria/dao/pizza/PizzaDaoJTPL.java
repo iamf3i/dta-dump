@@ -31,7 +31,7 @@ public class PizzaDaoJTPL implements PizzaDao {
     @Override
     public List<Pizza> findAllPizzas() throws PizzaException{
 
-        String sql = "SELECT * FROM pizza";
+        String sql = "SELECT * FROM pizzas";
 
         return this.jdbcTemplate.query(sql, new PizzaMapper());
     }

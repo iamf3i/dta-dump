@@ -2,6 +2,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import javax.sql.DataSource;
 
@@ -12,7 +15,6 @@ import javax.sql.DataSource;
 @ComponentScan("fr.dta.pizzeria.dao")
 public class JTPLDaoTestConfig {
 
-    @Bean
     public DataSource getDataSource(){
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -21,5 +23,17 @@ public class JTPLDaoTestConfig {
         dataSource.setUsername("root");
         dataSource.setPassword("");
         return dataSource;
+    }
+
+    @Bean
+    public DataSource getAnotherDataSource(){
+        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+
+        EmbeddedDatabase db = builder
+                .setType(EmbeddedDatabaseType.H2)
+                .addScript("redump.sql")
+                .build();
+
+        return db;
     }
 }

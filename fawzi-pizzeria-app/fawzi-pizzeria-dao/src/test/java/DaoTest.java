@@ -19,7 +19,7 @@ import java.util.List;
 @ContextConfiguration(classes = DaoTestConfig.class)
 public class DaoTest {
 
-    @Qualifier("pizzaDaoSpringJPA")
+    @Qualifier("pizzaDaoRepo")
     @Autowired
     PizzaDao dao;
 

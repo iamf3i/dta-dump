@@ -1,6 +1,7 @@
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -18,13 +19,15 @@ import javax.sql.DataSource;
 @Configuration
 @ComponentScan("fr.dta.pizzeria.dao")
 @EnableTransactionManagement
+@EnableJpaRepositories("fr.dta.pizzeria.dao")
 public class DaoTestConfig {
 
     @Bean
-    public PlatformTransactionManager txManager() {
+    public PlatformTransactionManager transactionManager() {
         return new JpaTransactionManager();
     }
 
+    @Bean
     public DataSource getDataSource() {
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -35,7 +38,6 @@ public class DaoTestConfig {
         return dataSource;
     }
 
-    @Bean
     public DataSource getAnotherDataSource() {
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
 
@@ -48,11 +50,13 @@ public class DaoTestConfig {
     }
 
     @Bean
-    public LocalEntityManagerFactoryBean getEMF() {
+    public LocalEntityManagerFactoryBean entityManagerFactory() {
 
         LocalEntityManagerFactoryBean emf = new LocalEntityManagerFactoryBean();
 
         emf.setPersistenceUnitName("JPAUNIT");
         return emf;
     }
+
+
 }

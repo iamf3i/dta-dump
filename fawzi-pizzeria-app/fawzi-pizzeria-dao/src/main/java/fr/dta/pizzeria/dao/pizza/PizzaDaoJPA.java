@@ -1,16 +1,15 @@
 package fr.dta.pizzeria.dao.pizza;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.logging.Level;
+import fr.dta.pizzeria.dao.exception.PizzaException;
+import fr.dta.pizzeria.model.Pizza;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
-
-import fr.dta.pizzeria.dao.exception.PizzaException;
-import fr.dta.pizzeria.model.Pizza;
+import java.util.List;
+import java.util.Optional;
+import java.util.logging.Level;
 
 public class PizzaDaoJPA implements PizzaDao {
 

@@ -1,6 +1,7 @@
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
@@ -20,6 +21,7 @@ import javax.sql.DataSource;
 @ComponentScan("fr.dta.pizzeria.dao")
 @EnableTransactionManagement
 @EnableJpaRepositories("fr.dta.pizzeria.dao")
+@EnableAspectJAutoProxy
 public class DaoTestConfig {
 
     @Bean

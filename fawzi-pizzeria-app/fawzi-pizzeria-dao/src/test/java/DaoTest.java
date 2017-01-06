@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -15,16 +16,17 @@ import java.util.List;
  * Created by ETY5 on 05/01/2017.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = JTPLDaoTestConfig.class)
-public class JTPLDaoTest {
+@ContextConfiguration(classes = DaoTestConfig.class)
+public class DaoTest {
 
+    @Qualifier("pizzaDaoSpringJPA")
     @Autowired
-    PizzaDao jtpl;
+    PizzaDao dao;
 
     @Test
     public void test() throws PizzaException {
 
-        List<Pizza> p = jtpl.findAllPizzas();
+        List<Pizza> p = dao.findAllPizzas();
 
         for (Pizza pizza: p) {
             System.out.println(pizza);
@@ -40,9 +42,9 @@ public class JTPLDaoTest {
         add.setNom("SALUTE");
         add.setCode("POP");
 
-        jtpl.saveNewPizza(add);
+        dao.saveNewPizza(add);
 
-        List<Pizza> p = jtpl.findAllPizzas();
+        List<Pizza> p = dao.findAllPizzas();
 
         for (Pizza pizza: p) {
             System.out.println(pizza);

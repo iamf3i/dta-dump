@@ -4,6 +4,7 @@ import fr.dta.pizzeria.dao.exception.PizzaException;
 import fr.dta.pizzeria.dao.pizza.PizzaDao;
 import fr.dta.pizzeria.model.Pizza;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import java.util.Comparator;
@@ -12,6 +13,7 @@ import java.util.List;
 @Controller
 public class ShowMostExpensivePizza extends Action {
 
+	@Qualifier("enabled")
 	@Autowired
 	PizzaDao dao;
 

@@ -3,6 +3,7 @@ package fr.dta.pizzeria.dao.pizza;
 import fr.dta.pizzeria.dao.exception.PizzaException;
 import fr.dta.pizzeria.model.Pizza;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.Optional;
  * Created by Fawzi NASSIM on 06/01/2017.
  */
 @Repository
+@Qualifier("enabled")
 public class PizzaDaoRepo implements PizzaDao {
 
 

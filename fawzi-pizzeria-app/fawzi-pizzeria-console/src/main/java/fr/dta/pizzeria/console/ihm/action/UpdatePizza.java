@@ -5,6 +5,7 @@ import fr.dta.pizzeria.dao.exception.UpdatePizzaException;
 import fr.dta.pizzeria.dao.pizza.PizzaDao;
 import fr.dta.pizzeria.model.Pizza;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
@@ -20,6 +21,7 @@ public class UpdatePizza extends Action {
 	@Autowired
 	Scanner reader;
 
+	@Qualifier("enabled")
 	@Autowired
 	PizzaDao pizzaDao;
 

@@ -1,12 +1,12 @@
 package fr.dta.pizzeria.console.ihm;
 
-import fr.dta.pizzeria.console.ihm.action.*;
+import fr.dta.pizzeria.console.ihm.action.Action;
 import fr.dta.pizzeria.dao.pizza.PizzaDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 
-import javax.annotation.PostConstruct;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -16,6 +16,7 @@ public class MainMenu implements Runnable {
     @Autowired
 	Map<Integer, Action> menu;
 
+    @Qualifier("enabled")
     @Autowired
     PizzaDao dao;
 

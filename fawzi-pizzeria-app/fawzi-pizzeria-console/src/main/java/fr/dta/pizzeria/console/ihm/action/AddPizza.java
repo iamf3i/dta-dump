@@ -5,6 +5,7 @@ import fr.dta.pizzeria.dao.pizza.PizzaDao;
 import fr.dta.pizzeria.model.CategoriePizza;
 import fr.dta.pizzeria.model.Pizza;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
@@ -15,6 +16,7 @@ public class AddPizza extends Action {
     @Autowired
     Scanner scan;
 
+    @Qualifier("enabled")
     @Autowired
     PizzaDao dao;
 

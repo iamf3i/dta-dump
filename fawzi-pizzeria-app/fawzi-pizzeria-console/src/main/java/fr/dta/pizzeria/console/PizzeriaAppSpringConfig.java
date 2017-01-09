@@ -5,6 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -24,6 +25,7 @@ import java.util.Scanner;
 @ComponentScan({"fr.dta.pizzeria.console", "fr.dta.pizzeria.dao"})
 @EnableTransactionManagement
 @EnableJpaRepositories("fr.dta.pizzeria.dao")
+@EnableAspectJAutoProxy
 public class PizzeriaAppSpringConfig {
 
     @Bean

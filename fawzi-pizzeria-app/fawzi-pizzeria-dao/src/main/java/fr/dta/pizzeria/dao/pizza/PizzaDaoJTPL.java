@@ -5,7 +5,6 @@ import fr.dta.pizzeria.model.Pizza;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.ResultSet;
@@ -16,7 +15,6 @@ import java.util.Optional;
 /**
  * Created by ETY5 on 05/01/2017.
  */
-@Repository
 public class PizzaDaoJTPL implements PizzaDao {
 
     private JdbcTemplate jdbcTemplate;

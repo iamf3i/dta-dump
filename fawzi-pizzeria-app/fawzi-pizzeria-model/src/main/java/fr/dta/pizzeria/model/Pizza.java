@@ -16,7 +16,7 @@ public class Pizza {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 
 	private String code;
 	private String nom;
@@ -45,11 +45,11 @@ public class Pizza {
 
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -77,11 +77,11 @@ public class Pizza {
 		this.prix = prix;
 	}
 
-	public static int getNbPizzas() {
+	public static Integer getNbPizzas() {
 		return nbPizzas;
 	}
 
-	public static void setNbPizzas(int nbPizzas) {
+	public static void setNbPizzas(Integer nbPizzas) {
 		Pizza.nbPizzas = nbPizzas;
 	}
 

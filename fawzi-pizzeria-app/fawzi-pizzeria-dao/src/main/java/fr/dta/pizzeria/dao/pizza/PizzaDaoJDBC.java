@@ -1,18 +1,16 @@
 package fr.dta.pizzeria.dao.pizza;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import fr.dta.pizzeria.dao.exception.PizzaException;
+import fr.dta.pizzeria.model.CategoriePizza;
+import fr.dta.pizzeria.model.Pizza;
+import org.springframework.stereotype.Repository;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import fr.dta.pizzeria.dao.exception.PizzaException;
-import fr.dta.pizzeria.model.CategoriePizza;
-import fr.dta.pizzeria.model.Pizza;
-
+@Repository
 public class PizzaDaoJDBC implements PizzaDao {
 
 	private Connection connection;
@@ -97,10 +95,12 @@ public class PizzaDaoJDBC implements PizzaDao {
 	@Override
 	public void migrateFilesToDB() throws PizzaException {
 
-		PizzaDaoFichier dao = new PizzaDaoFichier();
+        PizzaDaoFichier dao = new PizzaDaoFichier();
 		List<Pizza> pizzas = dao.findAllPizzas();
 
-		for (Pizza p : pizzas) {
+        System.out.println(pizzas.size());
+
+        for (Pizza p : pizzas) {
 
 			this.saveNewPizza(p);
 		}

@@ -27,7 +27,7 @@ public class PizzaDaoRepo implements PizzaDao {
 
     @Override
     public boolean saveNewPizza(Pizza pizza) throws PizzaException {
-       dao.save(pizza);
+        dao.save(pizza);
         return false;
     }
 

@@ -1,5 +1,9 @@
 package fr.dta.pizzeria.dao.pizza;
 
+import fr.dta.pizzeria.dao.exception.PizzaException;
+import fr.dta.pizzeria.model.CategoriePizza;
+import fr.dta.pizzeria.model.Pizza;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -7,10 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
-
-import fr.dta.pizzeria.dao.exception.PizzaException;
-import fr.dta.pizzeria.model.CategoriePizza;
-import fr.dta.pizzeria.model.Pizza;
 
 public class PizzaDaoFichier implements PizzaDao {
 
@@ -23,7 +23,7 @@ public class PizzaDaoFichier implements PizzaDao {
 		String home = "C:\\Users\\fawzi\\Documents\\workspace-sts-3.8.2.RELEASE\\formation-dta\\fawzi-pizzeria-app\\fawzi-pizzeria-console\\src\\main\\resources\\data";
 		String dta = "C:\\Users\\ETY5\\Documents\\WORKSPACE\\src\\fawzi-pizzeria-app\\fawzi-pizzeria-console\\src\\main\\resources\\data";
 
-		File dir = new File(home);
+		File dir = new File(dta);
 
 		dir.mkdir();
 

@@ -39,3 +39,5 @@ Servers/
 pizzeria-console-objet/data/
 .sonarlint/
 Servers2/
+JavaScript/.vscode/settings.json
+JavaScript/.vscode/

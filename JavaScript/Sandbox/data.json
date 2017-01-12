@@ -1,0 +1,15 @@
+{
+    "recipes": [{
+            "id": 1,
+            "name": "Margharita"
+        },
+        {
+            "id": 2,
+            "name": "Regina"
+        },
+        {
+            "id": 3,
+            "name": "Quattro fromagi"
+        }
+    ]
+}

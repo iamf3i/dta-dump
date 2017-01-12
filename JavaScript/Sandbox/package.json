@@ -1,0 +1,16 @@
+{
+  "name": "sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pizzayolo.js",
+  "scripts": {
+    "api": "json-server data.json",
+    "start": "serve -p 3001"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "json-server": "^0.9.4",
+    "serve": "^2.1.2"
+  }
+}

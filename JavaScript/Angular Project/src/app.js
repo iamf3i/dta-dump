@@ -1,7 +1,16 @@
-import { RecipeService } from './service/recipes.service';
-import { Pizzeria } from './service/pizzeria.service';
+import { RecipesService } from './services/recipes.service';
+import { PizzeriaService } from './services/pizzeria.service';
 
-const recipesService = new RecipeService();
-const pizzeriaService = new Pizzeria(recipesService);
+const recipesService = new RecipesService();
+const pizzeriaService = new PizzeriaService(recipesService);
 
-pizzeriaService.start(1000);
+recipesService.getRecipesNames()
+.then(recipes => {
+
+    $('#recipes').html(recipes.map(recipe => `<li>${ recipe }</li>`).join(''));
+
+})
+
+
+// pizzeriaService.start(1000);
+

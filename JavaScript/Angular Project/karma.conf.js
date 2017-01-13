@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Fri Jan 13 2017 12:07:09 GMT+0100 (Europe de l’Ouest)
+// Generated on Fri Jan 13 2017 12:07:11 GMT+0100 (CET)
 
 module.exports = function(config) {
   config.set({
@@ -23,12 +23,27 @@ module.exports = function(config) {
     exclude: [
     ],
 
+    plugins: [
+      require("karma-webpack"),
+      require("karma-jasmine"),
+      require("karma-chrome-launcher")
+    ],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      // add webpack as preprocessor
+      'test/*.spec.js': ['webpack']
     },
 
+    webpack: {
+      devtool: 'inline-source-map',
+      module: {
+        loaders: [
+          { test: /\.js/, exclude: /node_modules/, loader: 'babel' }
+        ]
+      }
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'

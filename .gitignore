@@ -43,3 +43,7 @@ JavaScript/.vscode/settings.json
 JavaScript/.vscode/
 JavaScript/Sandbox/node_modules/lodash/subtract.js
 JavaScript/Sandbox/node_modules/
+JavaScript/Angular Project/node_modules/.bin/webpack.cmd
+JavaScript/Angular Project/node_modules/
+JavaScript/Angular Project/public/app.bundle.js
+JavaScript/Angular Project/public/app.bundle.js.map

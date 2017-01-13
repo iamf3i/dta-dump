@@ -1,4 +1,4 @@
-class RecipeService {
+export class RecipeService {
 
     constructor() {
         this.recipeList = null;
@@ -44,30 +44,4 @@ class RecipeService {
         alert('Une erreur est survenue')
     }
 
-}
-
-class Pizzeria {
-
-    constructor() {
-        this.pool = [];
-        this.recipeService = new RecipeService();
-    }
-
-    start(time) {
-
-        this.recipeService.getRecipesNames()
-            .then((recipes) => {
-                const intervalId = setInterval(() => {
-                    let rand = recipes[Math.floor(Math.random() * recipes.length)];
-                    this.pool.push(rand);
-                    console.log('POOL: ', this.pool);
-
-                    if (this.pool.length >= 10) {
-                        console.log("GAME OVER");
-                        clearInterval(intervalId);
-                    }
-                }, time);
-
-            })
-    }
 }

@@ -13,7 +13,8 @@ export class PizzeriaService {
                 const index = Math.floor(Math.random() * recipesNames.length);
                 const recipeName = recipesNames[index];
                 this.pool.push(recipeName);
-                console.log('POOL : ', this.pool);
+
+                $('#otherPizzas').html(this.pool.map(recipe => `<li data-recipe="${ recipe }">${ recipe.toUpperCase() }</li>`));
 
                 if (this.pool.length >= 10) {
                     console.log('GAME OVER');

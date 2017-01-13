@@ -1,15 +1,19 @@
 {
-    "recipes": [{
+    "recipes": [
+        {
             "id": 1,
-            "name": "Margharita"
+            "name": "Margharita",
+            "toppings": ["tomato", "ham", "fromaggio"]
         },
         {
             "id": 2,
-            "name": "Regina"
+            "name": "Regina",
+            "toppings": ["tomato", "mushrooms"]
         },
         {
             "id": 3,
-            "name": "Quattro fromagi"
+            "name": "Quattro fromagi",
+            "toppings": ["parmeggiano", "cheese1", "cheeese 2"]
         }
     ]
-}
+}   

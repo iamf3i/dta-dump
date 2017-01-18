@@ -1,0 +1,43 @@
+<div>
+
+<h2>PizzaYolo <small>{{ ctrl.version }}</small></h2>
+
+    <input type="search" ng-model="query" class="form-control">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th><a ng-class="{ up: ctrl.predicat === 'name' && !ctrl.reverse, down: ctrl.predicat === 'name' && ctrl.reverse}"
+                    href="" ng-click="ctrl.sort('name')">Nom</a></th>
+                <th><a ng-class="{ up: ctrl.predicat === 'age' && !ctrl.reverse, down: ctrl.predicat === 'age' && ctrl.reverse}"
+                    href="" ng-click="ctrl.sort('age')">Age</a></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in ctrl.users | filter:query | orderBy:ctrl.predicat:ctrl.reverse track by $index">
+                <td>
+                    <a ng-href="/user/{{ user.id }}">{{ user.name }}</a>
+                </td>
+                <td>{{ user.age }}</td>
+                <td style="text-align:right">
+                    <button 
+                    ng-click="ctrl.editUser(user)" class="btn">Editer</button>
+                    <button 
+                    ng-disabled="user.deleted"
+                    ng-click="ctrl.deleteUser(user)" class="btn">Supprimer</button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" style="text-align: right;">
+                    Le doyen : {{ ctrl.users | eldest }}
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+<a href='/users/add'>TEST</a>
+
+</div>
